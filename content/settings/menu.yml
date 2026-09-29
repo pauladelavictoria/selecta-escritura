@@ -1,0 +1,66 @@
+# Menú principal. Cada entrada admite `children` (hasta tres niveles).
+items:
+  - label: Cursos
+    children:
+      - label: Cursos en Valencia
+        href: /talleres
+        children:
+          - { label: Escritura creativa, href: /taller-de-escritura-creativa-de-kike-parra-y-barbara-blasco }
+          - { label: Narrativa, href: /narrativa-i }
+          - { label: Narrativa Avanzado, href: /narrativaii }
+          - { label: El misterio de la poesía, href: /el-misterio-de-la-poesia }
+          - { label: Guion, href: /taller-guion }
+          - { label: Las mil caras del relato, href: /las-mil-caras-del-relato }
+          - { label: Novela, href: /taller-de-novela }
+          - { label: Proyectos narrativos, href: /proyectos-narrativos }
+          - { label: Escritura creativa para adolescentes, href: /escritura-creativa-para-adolescentes }
+      - label: Cursos por Videoconferencia
+        href: /talleres-online
+        children:
+          - { label: Narrativa, href: /narrativa-i }
+          - { label: Narrativa Avanzado, href: /narrativaii }
+          - { label: Proyecto con Almudena Sánchez, href: /proyecto-con-almudena-sanchez }
+          - { label: Las mil caras del relato, href: /las-mil-caras-del-relato }
+          - { label: Poesía con Andrés García Cerdán, href: /poesia-con-andres-garcia-cerdan }
+      - label: Estrellas invitadas
+        href: /estrellas-invitadas
+        children:
+          - { label: María Bastarós, href: /un-hombre-sin-manos-llamo-a-mi-puerta-para-venderme-una-fotografia-de-mi-casa }
+          - { label: Rosario Villajos, href: /una-lupa-una-cerilla-o-un-mechero }
+          - { label: Almudena Sánchez, href: /el-amor-la-muerte-y-las-moscas }
+          - { label: Carlos Barea, href: /la-autocorrecion-literaria }
+          - { label: Paco Inclán, href: /de-la-idea-al-relato }
+          - { label: Sabina Urraca, href: /parque-del-capricho }
+          - { label: Elsa Moreno, href: /elsa-moreno-vivenciar-el-poema }
+  - label: La escuela
+    children:
+      - { label: Quiénes somos, href: /quienes-somos }
+      - label: Profesorado
+        href: /profesorado
+        children:
+          - { label: Claustro, href: /profesorado/claustro }
+          - { label: Estrellas invitadas, href: /profesorado/estrellas-invitadas-profesores }
+      - { label: Contacto, href: /contacto }
+  - label: Eventos
+    href: /eventos
+    children:
+      - label: Festival literario
+        children:
+          - { label: CARIÑAR festival literario, href: /carinar-festival-literario }
+          - { label: Festival Literario Entre lo rural y lo urbano, href: /entre-lo-rural-y-lo-urbano }
+          - { label: II Festival Literario Los libros incorrectos, href: /los-libros-incorrectos-2 }
+      - label: Exposiciones
+        href: /exposiciones
+        children:
+          - { label: Exposición de Manuel Martínez Ojea, href: /exposicion-de-manuel-martinez-ojea }
+  - label: Servicios
+    href: /servicios
+    children:
+      - { label: Tutorías, href: /tutorias }
+      - { label: Correcciones y asesoramiento literario, href: /correcciones-y-asesoramiento-literario }
+      - { label: Edición y maquetación, href: /edicion-y-maquetacion }
+  - label: Taller de experiencias
+    href: /taller-de-experiencias-2
+    children:
+      - { label: Escribir a ras de l´Albufera, href: /escribir-a-ras-de-lalbufera }
+      - { label: Narrativas visuales, href: /narrativas-visuales }

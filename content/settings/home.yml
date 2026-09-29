@@ -1,0 +1,13 @@
+intro:
+  lead: Si deseas profesionalizarte en la escritura o simplemente mantener tu mente en forma y jugar con tu imaginación, hay un taller que se adapta a ti. Con profesores de primer nivel y gran calidad humana.
+  title: Entra y descúbrelos
+discover:
+  - { label: Nuestros talleres, href: /talleres, image: /images/01nuestros-talleres.webp }
+  - { label: Profesorado, href: /profesorado, image: /images/05profesorado.webp }
+  - { label: Estrellas invitadas, href: /estrellas-invitadas, image: /images/02estrellas-invitadas.webp }
+  - { label: Servicios literarios, href: /servicios, image: /images/03servicios-literarios.webp }
+  - { label: Viernes de Selecta, href: /eventos/viernes-de-selecta, image: /images/04viernes-selecta.webp }
+  - { label: Eventos, href: /eventos, image: /images/06eventos.webp }
+callouts:
+  - { title: Regala un taller, text: Regala el curso que quieras., href: /regala-un-taller, icon: gift }
+  - { title: Hazte socio, text: Son solo 60 euros al año., href: /hazte-socio, icon: member }
