@@ -1,0 +1,195 @@
+# Panel de contenidos: https://<tu-sitio>/admin
+# Cada cambio guardado aquí se convierte en un commit en GitHub y Netlify redespliega la web.
+backend:
+  name: github
+  repo: pauladelavictoria/selecta-escritura
+  branch: main
+
+# Para editar en local sin GitHub: `npx decap-server` + `npm run dev` y abrir /admin/index.html
+local_backend: true
+
+locale: es
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: pages
+    label: Páginas
+    label_singular: Página
+    folder: content/pages
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} · {{layout}}"
+    sortable_fields: [title, layout]
+    view_groups:
+      - { label: Tipo, field: layout }
+    fields:
+      - { name: title, label: Título, widget: string }
+      - name: layout
+        label: Tipo de página
+        widget: select
+        default: page
+        options:
+          - { label: Página de texto, value: page }
+          - { label: Curso / taller, value: course }
+          - { label: Listado de tarjetas, value: listing }
+          - { label: Profesorado, value: team }
+          - { label: Contacto, value: contact }
+          - { label: Mapa del sitio, value: sitemap }
+      - { name: kicker, label: Antetítulo, widget: string, required: false, hint: "Texto pequeño sobre el título, p. ej. «Taller»." }
+      - { name: path, label: URL personalizada, widget: string, required: false, hint: "Solo si no quieres que la URL sea el nombre del archivo. P. ej. /profesorado/claustro" }
+      - { name: summary, label: Resumen, widget: text, required: false, hint: Aparece en las tarjetas de los listados. }
+      - { name: image, label: Imagen principal, widget: image, required: false }
+      - { name: body, label: Contenido, widget: markdown, required: false }
+      # Cursos
+      - { name: status, label: "Curso: aviso destacado", widget: string, required: false, hint: "P. ej. «Curso ya impartido en 2024»." }
+      - { name: finished, label: "Curso: finalizado", widget: boolean, required: false, default: false }
+      - name: facts
+        label: "Curso: datos prácticos"
+        widget: list
+        required: false
+        summary: "{{fields.label}}: {{fields.value}}"
+        fields:
+          - { name: label, label: Dato, widget: string, hint: "Duración, Horario, Precio…" }
+          - { name: value, label: Valor, widget: string }
+      - name: teachers
+        label: "Curso: profesorado"
+        widget: relation
+        collection: teachers
+        value_field: "{{slug}}"
+        search_fields: [name]
+        display_fields: [name]
+        multiple: true
+        required: false
+      # Listados
+      - name: items
+        label: "Listado: páginas que aparecen"
+        widget: relation
+        collection: pages
+        value_field: "{{slug}}"
+        search_fields: [title]
+        display_fields: [title]
+        multiple: true
+        required: false
+      # Profesorado
+      - name: groups
+        label: "Profesorado: grupos que se muestran"
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: Claustro, value: claustro }
+          - { label: Estrellas invitadas, value: invitadas }
+      - { name: gallery, label: Galería, widget: list, required: false, field: { name: image, label: Imagen, widget: image } }
+
+  - name: teachers
+    label: Profesorado
+    label_singular: Profesor/a
+    folder: content/teachers
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}}"
+    fields:
+      - { name: name, label: Nombre, widget: string }
+      - { name: photo, label: Foto, widget: image, required: false }
+      - name: groups
+        label: Aparece en
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: Claustro, value: claustro }
+          - { label: Estrellas invitadas, value: invitadas }
+      - { name: order, label: Orden, widget: number, value_type: int, default: 50, required: false }
+      - { name: body, label: Biografía, widget: markdown }
+
+  - name: settings
+    label: Ajustes generales
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Datos de contacto y textos
+        file: content/settings/site.yml
+        fields:
+          - { name: title, label: Nombre de la web, widget: string }
+          - { name: description, label: Descripción, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: phone, label: Teléfono (sin espacios), widget: string }
+          - { name: phoneDisplay, label: Teléfono (como se muestra), widget: string }
+          - { name: address, label: Dirección, widget: string }
+          - { name: mapsUrl, label: Enlace a Google Maps, widget: string }
+          - { name: instagram, label: Instagram, widget: string }
+          - { name: tagline, label: Frase de la portada, widget: text }
+          - { name: footerTagline, label: Frase del pie, widget: text }
+          - name: legalLinks
+            label: Enlaces del pie
+            widget: list
+            fields:
+              - { name: label, label: Texto, widget: string }
+              - { name: href, label: Enlace, widget: string }
+      - name: home
+        label: Portada
+        file: content/settings/home.yml
+        fields:
+          - name: intro
+            label: Introducción
+            widget: object
+            fields:
+              - { name: lead, label: Texto, widget: text }
+              - { name: title, label: Título, widget: string }
+          - name: discover
+            label: Mosaico de imágenes
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: Texto alternativo, widget: string }
+              - { name: href, label: Enlace, widget: string }
+              - { name: image, label: Imagen, widget: image }
+          - name: callouts
+            label: Bloques destacados
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Título, widget: string }
+              - { name: text, label: Frase, widget: string, required: false }
+              - { name: href, label: Enlace, widget: string }
+              - name: icon
+                label: Icono
+                widget: select
+                options:
+                  - { label: Regalo, value: gift }
+                  - { label: Carné de socio, value: member }
+                  - { label: Corazón, value: heart }
+                  - { label: Libro, value: book }
+      - name: menu
+        label: Menú principal
+        file: content/settings/menu.yml
+        fields:
+          - name: items
+            label: Entradas
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: Texto, widget: string }
+              - { name: href, label: Enlace, widget: string, required: false }
+              - name: children
+                label: Submenú
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: Texto, widget: string }
+                  - { name: href, label: Enlace, widget: string, required: false }
+                  - name: children
+                    label: Submenú
+                    widget: list
+                    required: false
+                    summary: "{{fields.label}}"
+                    fields:
+                      - { name: label, label: Texto, widget: string }
+                      - { name: href, label: Enlace, widget: string }
