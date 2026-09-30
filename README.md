@@ -72,6 +72,16 @@ teachers: [kike-parra, barbara-blasco]
 Texto del curso…
 ```
 
+## Panel de edición para colaboradores (Pages CMS)
+
+Para personas sin cuenta de GitHub. La configuración está en `.pages.yml`, en la raíz del repo.
+
+1. Entra en [app.pagescms.org](https://app.pagescms.org) con tu cuenta de GitHub y da acceso a este repo cuando lo pida.
+2. Abre el repo y ve a **Collaborators** para invitar a la persona por email. Recibirá un enlace para entrar; no necesita GitHub.
+3. Cada cambio que guarde es un commit en `main` y Netlify vuelve a publicar la web en uno o dos minutos.
+
+Si añades campos nuevos a las páginas, actualiza también `.pages.yml` (y `public/admin/config.yml` si sigues usando Decap).
+
 ## Panel de edición (Decap CMS)
 
 - **En producción:** `https://<tu-dominio>/admin`. Inicias sesión con GitHub; cada cambio guardado es un commit y Netlify vuelve a publicar la web en uno o dos minutos.

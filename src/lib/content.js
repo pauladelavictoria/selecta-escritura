@@ -16,7 +16,7 @@ function parseMarkdown(raw) {
 
 const slugOf = (file) => file.split('/').pop().replace(/\.md$/, '')
 
-export const normalizePath = (path) => '/' + path.replace(/^\/+|\/+$/g, '')
+const normalizePath = (path) => '/' + path.replace(/^\/+|\/+$/g, '')
 
 function loadCollection(files) {
   return Object.entries(files).map(([file, raw]) => {
@@ -29,18 +29,21 @@ export const site = parse(siteRaw)
 export const home = parse(homeRaw)
 export const menu = parse(menuRaw).items
 
-export const pages = loadCollection(pageFiles).map((page) => ({
+const pages = loadCollection(pageFiles).map((page) => ({
   ...page,
   path: normalizePath(page.path ?? page.slug),
 }))
 
-export const teachers = loadCollection(teacherFiles).sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
+const teachers = loadCollection(teacherFiles).sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
 
 const pagesByPath = new Map(pages.map((page) => [page.path, page]))
 const pagesBySlug = new Map(pages.map((page) => [page.slug, page]))
 const teachersBySlug = new Map(teachers.map((teacher) => [teacher.slug, teacher]))
 
 export const getPageByPath = (path) => pagesByPath.get(normalizePath(path))
-export const getPagesBySlugs = (slugs = []) => slugs.map((slug) => pagesBySlug.get(slug)).filter(Boolean)
-export const getTeachersBySlugs = (slugs = []) => slugs.map((slug) => teachersBySlug.get(slug)).filter(Boolean)
+// Las referencias pueden guardarse como «slug», «slug.md» o «content/pages/slug.md» según el CMS.
+const toSlug = (ref) => String(ref).split('/').pop().replace(/\.md$/, '')
+
+export const getPagesBySlugs = (slugs = []) => slugs.map((slug) => pagesBySlug.get(toSlug(slug))).filter(Boolean)
+export const getTeachersBySlugs = (slugs = []) => slugs.map((slug) => teachersBySlug.get(toSlug(slug))).filter(Boolean)
 export const getTeachersByGroup = (group) => teachers.filter((teacher) => teacher.groups?.includes(group))

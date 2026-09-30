@@ -1,0 +1,252 @@
+# Panel de contenidos con Pages CMS: https://app.pagescms.org
+# Cada cambio guardado es un commit en GitHub y Netlify vuelve a publicar la web.
+# Las personas invitadas por email pueden editar sin tener cuenta de GitHub.
+
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: pages
+    label: Páginas
+    type: collection
+    path: content/pages
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      primary: title
+      fields: [title, layout]
+      sort: [title, layout]
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: layout
+        label: Tipo de página
+        type: select
+        default: page
+        options:
+          values:
+            - { name: page, label: Página de texto }
+            - { name: course, label: Curso / taller }
+            - { name: listing, label: Listado de tarjetas }
+            - { name: team, label: Profesorado }
+            - { name: contact, label: Contacto }
+            - { name: sitemap, label: Mapa del sitio }
+      - name: kicker
+        label: Antetítulo
+        type: string
+        description: Texto pequeño sobre el título, p. ej. «Taller».
+      - name: path
+        label: URL personalizada
+        type: string
+        description: Solo si no quieres que la URL sea el nombre del archivo. P. ej. /profesorado/claustro
+      - name: summary
+        label: Resumen
+        type: text
+        description: Aparece en las tarjetas de los listados.
+      - name: image
+        label: Imagen principal
+        type: image
+      - name: body
+        label: Contenido
+        type: rich-text
+      # Cursos
+      - name: status
+        label: "Curso: aviso destacado"
+        type: string
+        description: P. ej. «Curso ya impartido en 2024».
+      - name: finished
+        label: "Curso: finalizado"
+        type: boolean
+        default: false
+      - name: facts
+        label: "Curso: datos prácticos"
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}: {value}"
+        fields:
+          - { name: label, label: Dato, type: string, description: "Duración, Horario, Precio…" }
+          - { name: value, label: Valor, type: string }
+      - name: teachers
+        label: "Curso: profesorado"
+        type: reference
+        options:
+          collection: teachers
+          multiple: true
+          search: name
+          value: "{name}"
+          label: "{fields.name}"
+      # Listados
+      - name: items
+        label: "Listado: páginas que aparecen"
+        type: reference
+        description: Solo para páginas de tipo «Listado de tarjetas».
+        options:
+          collection: pages
+          multiple: true
+          search: title
+          value: "{name}"
+          label: "{fields.title}"
+      # Profesorado
+      - name: groups
+        label: "Profesorado: grupos que se muestran"
+        type: select
+        options:
+          multiple: true
+          values:
+            - { name: claustro, label: Claustro }
+            - { name: invitadas, label: Estrellas invitadas }
+      - name: gallery
+        label: Galería
+        type: image
+        list: true
+
+  - name: teachers
+    label: Profesorado
+    type: collection
+    path: content/teachers
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      primary: name
+      fields: [name, order]
+      sort: [name, order]
+    fields:
+      - name: name
+        label: Nombre
+        type: string
+        required: true
+      - name: photo
+        label: Foto
+        type: image
+      - name: groups
+        label: Aparece en
+        type: select
+        options:
+          multiple: true
+          values:
+            - { name: claustro, label: Claustro }
+            - { name: invitadas, label: Estrellas invitadas }
+      - name: order
+        label: Orden
+        type: number
+        default: 50
+      - name: body
+        label: Biografía
+        type: rich-text
+
+  - name: site
+    label: Datos de contacto y textos
+    type: file
+    path: content/settings/site.yml
+    format: yaml
+    fields:
+      - { name: title, label: Nombre de la web, type: string }
+      - { name: description, label: Descripción, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: phone, label: Teléfono (sin espacios), type: string }
+      - { name: phoneDisplay, label: Teléfono (como se muestra), type: string }
+      - { name: address, label: Dirección, type: string }
+      - { name: mapsUrl, label: Enlace a Google Maps, type: string }
+      - { name: instagram, label: Instagram, type: string }
+      - { name: tagline, label: Frase de la portada, type: text }
+      - { name: footerTagline, label: Frase del pie, type: text }
+      - name: legalLinks
+        label: Enlaces del pie
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - { name: label, label: Texto, type: string }
+          - { name: href, label: Enlace, type: string }
+
+  - name: home
+    label: Portada
+    type: file
+    path: content/settings/home.yml
+    format: yaml
+    fields:
+      - name: intro
+        label: Introducción
+        type: object
+        fields:
+          - { name: lead, label: Texto, type: text }
+          - { name: title, label: Título, type: string }
+      - name: discover
+        label: Estantería de libros
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - { name: label, label: Título del lomo, type: string }
+          - { name: href, label: Enlace, type: string }
+          - { name: image, label: Imagen, type: image, description: Actualmente no se muestra en la estantería. }
+      - name: callouts
+        label: Bloques destacados
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: text, label: Frase, type: string }
+          - { name: href, label: Enlace, type: string }
+          - name: icon
+            label: Icono
+            type: select
+            options:
+              values:
+                - { name: gift, label: Regalo }
+                - { name: member, label: Carné de socio }
+                - { name: heart, label: Corazón }
+                - { name: book, label: Libro }
+
+  - name: menu
+    label: Menú principal
+    type: file
+    path: content/settings/menu.yml
+    format: yaml
+    fields:
+      - name: items
+        label: Entradas
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - { name: label, label: Texto, type: string }
+          - { name: href, label: Enlace, type: string }
+          - name: children
+            label: Submenú
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - { name: label, label: Texto, type: string }
+              - { name: href, label: Enlace, type: string }
+              - name: children
+                label: Submenú
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{label}"
+                fields:
+                  - { name: label, label: Texto, type: string }
+                  - { name: href, label: Enlace, type: string }
