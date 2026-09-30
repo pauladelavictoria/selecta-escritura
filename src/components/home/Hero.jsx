@@ -1,4 +1,3 @@
-import LottieAnimation from '../ui/LottieAnimation'
 import { site } from '../../lib/content'
 
 export default function Hero() {
@@ -12,9 +11,6 @@ export default function Hero() {
       <div className="hero__brand">
         <img src="/images/logo-selectaescritura-black.svg" alt="Selecta Escritura" />
       </div>
-      <a href="#abajo" className="hero__scroll" aria-label="Bajar">
-        <LottieAnimation src="/lottie/scroll-down.json" />
-      </a>
     </section>
   )
 }

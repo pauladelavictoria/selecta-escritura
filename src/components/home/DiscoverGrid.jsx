@@ -1,20 +1,19 @@
 import { Link } from 'react-router-dom'
-import { home } from '../../lib/content'
+import { home, site } from '../../lib/content'
 
-// Las 4 primeras tarjetas van en la fila principal; el resto, centradas debajo.
+// Estantería: cada apartado es un libro con el título en el lomo.
 export default function DiscoverGrid() {
-  const rows = [home.discover.slice(0, 4), home.discover.slice(4)].filter((row) => row.length)
   return (
     <section className="discover textured">
-      {rows.map((row, i) => (
-        <div key={i} className={`container discover__row discover__row--${i === 0 ? 4 : 2}`}>
-          {row.map((card) => (
-            <Link key={card.href} to={card.href} className="discover__card">
-              <img src={card.image} alt={card.label} loading="lazy" />
-            </Link>
-          ))}
-        </div>
-      ))}
+      <div className="shelf">
+        {home.discover.map((card) => (
+          <Link key={card.href} to={card.href} className="book">
+            <span className="book__mark" aria-hidden="true">S</span>
+            <span className="book__title">{card.label}</span>
+            <span className="book__brand" aria-hidden="true">{site.title}</span>
+          </Link>
+        ))}
+      </div>
     </section>
   )
 }
