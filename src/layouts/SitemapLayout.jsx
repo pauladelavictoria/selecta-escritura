@@ -4,6 +4,7 @@ import SmartLink from '../components/ui/SmartLink'
 import AddressMap from '../components/page/AddressMap'
 import Icon from '../components/ui/Icon'
 import { home, menu, site } from '../lib/content'
+import styles from './SitemapLayout.module.css'
 
 // Se genera solo a partir del menú, la portada y el pie: no hay que mantenerlo a mano.
 
@@ -68,19 +69,19 @@ const countLinks = (sections) => new Set(sections.flatMap((s) => s.groups.flatMa
 
 function SitemapCard({ section }) {
   return (
-    <section className="sitemap-card">
-      <h2 className="sitemap-card__title">
+    <section className={styles.card}>
+      <h2 className={styles.title}>
         {section.href ? <SmartLink href={section.href}>{section.title}</SmartLink> : section.title}
       </h2>
-      <div className="sitemap-card__body">
+      <div className={styles.body}>
         {section.groups.map((group, i) => (
-          <div key={group.title ?? i} className="sitemap-group">
+          <div key={group.title ?? i}>
             {group.title && (
-              <h3 className="sitemap-group__title">
+              <h3 className={styles.groupTitle}>
                 {group.href ? <SmartLink href={group.href}>{group.title}</SmartLink> : group.title}
               </h3>
             )}
-            <ul className="sitemap-group__links">
+            <ul className={styles.links}>
               {group.links.map((link) => (
                 <li key={link.href}>
                   <SmartLink href={link.href}>{link.label}</SmartLink>
@@ -99,18 +100,18 @@ export default function SitemapLayout({ page }) {
   const visible = filterSections(sections, query)
 
   return (
-    <article className="page">
+    <article>
       <PageHero kicker={page.kicker} title={page.title} />
-      <div className="container sitemap">
-        <section className="sitemap-location">
+      <div className={`container ${styles.sitemap}`}>
+        <section className={styles.location}>
           <h2>Dónde estamos</h2>
-          <SmartLink href={site.mapsUrl} className="sitemap-location__address">
+          <SmartLink href={site.mapsUrl} className={styles.address}>
             <Icon name="pin" size={18} /> {site.address}
           </SmartLink>
           <AddressMap />
         </section>
 
-        <div className="sitemap__search">
+        <div className={styles.search}>
           <label htmlFor="sitemap-search">¿Qué estás buscando?</label>
           <input
             id="sitemap-search"
@@ -119,19 +120,19 @@ export default function SitemapLayout({ page }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <p className="sitemap__count" aria-live="polite">
+          <p className={styles.count} aria-live="polite">
             {query ? `${countLinks(visible)} resultados` : `${countLinks(sections)} páginas`}
           </p>
         </div>
 
         {visible.length ? (
-          <div className="sitemap__grid">
+          <div className={styles.grid}>
             {visible.map((section) => (
               <SitemapCard key={section.title} section={section} />
             ))}
           </div>
         ) : (
-          <p className="sitemap__empty">
+          <p className={styles.empty}>
             No hay ninguna página con «{query}». <SmartLink href="/contacto">Escríbenos</SmartLink> y te ayudamos.
           </p>
         )}

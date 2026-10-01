@@ -1,0 +1,41 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+.field { display: grid; gap: 8px; }
+.field > span { font-size: 14px; font-weight: 600; }
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #b9b9b3;
+  border-radius: 0;
+  background: #fff;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  transition: border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.field input::placeholder,
+.field textarea::placeholder { color: #75756f; }
+.field input:focus,
+.field textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 45%, transparent); }
+.field textarea { resize: vertical; }
+.full { grid-column: 1 / -1; }
+
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--ink); }
+.check a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+
+.footer { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.status { margin: 0; font-size: 15px; }
+.sent { color: var(--deep); font-weight: 600; }
+.error { color: #b3264f; font-weight: 600; }
+
+@media (max-width: 767px) {
+  .form { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,122 @@
+/* Foto a pantalla completa, volteada para que la frase tape solo la mesa y no a la mecanógrafa */
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: end;
+  /* Ocupa toda la pantalla: la cabecera flota encima */
+  min-height: 100dvh;
+  padding-top: var(--header-h);
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url('/images/typing-in-water.jpg') center 50% / cover no-repeat;
+}
+
+/* Velo para que el texto se lea sobre la foto */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgb(28 28 27 / 0.55), transparent calc(var(--header-h) + 80px)),
+    linear-gradient(90deg, rgb(28 28 27 / 0.55), transparent 55%),
+    linear-gradient(180deg, transparent 40%, rgb(28 28 27 / 0.75));
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(24px, 4vw, 64px);
+  padding-bottom: clamp(24px, 4vw, 56px);
+}
+
+.statement {
+  max-width: 11ch;
+  font-size: clamp(3.2rem, 8.6vw, 10rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  animation: rise 1000ms var(--ease) both;
+}
+
+/* La coma del logo cierra la frase, colgada como un signo más */
+.comma {
+  display: inline-block;
+  height: 0.62em;
+  width: auto;
+  margin-left: 0.06em;
+  vertical-align: -0.26em;
+  color: var(--accent);
+}
+
+/* El resto de la frase: los «para…» en cursiva, apilados junto a la afirmación */
+.clauses {
+  display: grid;
+  gap: 0.2em;
+  padding-bottom: 0.35em;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.9vw, 2rem);
+  font-style: italic;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.clauses li {
+  animation: rise 900ms calc(300ms + var(--i) * 90ms) var(--ease) both;
+}
+
+.clauses li:last-child {
+  color: var(--accent);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: 88dvh;
+  }
+
+  /* En vertical la foto sin voltear deja la cara a la derecha, por encima del texto */
+  .hero::before {
+    background-position: 30% top;
+    transform: none;
+  }
+
+  .hero::after {
+    background:
+      linear-gradient(180deg, rgb(28 28 27 / 0.55), transparent calc(var(--header-h) + 60px)),
+      linear-gradient(180deg, transparent 25%, rgb(28 28 27 / 0.55) 50%, rgb(28 28 27 / 0.9));
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .statement {
+    font-size: clamp(3rem, 14.5vw, 4.5rem);
+  }
+
+  .clauses {
+    padding-bottom: 0;
+    font-size: 1.3rem;
+    white-space: normal;
+  }
+}

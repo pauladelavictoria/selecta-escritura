@@ -1,16 +1,23 @@
 import { Link } from 'react-router-dom'
-import { home, site } from '../../lib/content'
+import { home } from '../../lib/content'
+import styles from './DiscoverGrid.module.css'
 
 // Estantería: cada apartado es un libro con el título en el lomo.
 export default function DiscoverGrid() {
   return (
-    <section className="discover textured">
-      <div className="shelf">
+    <section className={`container ${styles.discover}`}>
+      <div className={styles.headingBox}>
+        <h2 className={styles.heading}>{home.intro.title}</h2>
+      </div>
+      <div className={styles.shelf}>
         {home.discover.map((card) => (
-          <Link key={card.href} to={card.href} className="book">
-            <span className="book__mark" aria-hidden="true">S</span>
-            <span className="book__title">{card.label}</span>
-            <span className="book__brand" aria-hidden="true">{site.title}</span>
+          <Link key={card.href} to={card.href} className={styles.book}>
+            <span className={styles.spine}>
+              {/* Cara superior del libro (tapas y bloque de páginas): solo se ve al inclinarlo */}
+              <span className={styles.top} aria-hidden="true" />
+              <span className={styles.title}>{card.label}</span>
+              <span className={styles.mark} aria-hidden="true"><span>S</span></span>
+            </span>
           </Link>
         ))}
       </div>

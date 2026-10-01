@@ -1,0 +1,32 @@
+.footer { background: var(--teal); color: var(--ink); }
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr;
+  gap: 48px;
+  padding-block: 64px 48px;
+}
+.brand { align-self: start; }
+.brand img { width: 160px; height: auto; }
+
+.links, .contact { display: grid; gap: 12px; align-content: start; font-size: 15px; }
+.links a, .contact a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--ink);
+  transition: color var(--fast) var(--ease);
+}
+.links a:hover, .contact a:hover { color: var(--paper); text-decoration: underline; text-underline-offset: 4px; }
+.contact svg { flex-shrink: 0; margin-top: 3px; }
+
+.copy {
+  margin: 0;
+  padding-block: 20px;
+  border-top: 1px solid rgb(28 28 27 / 0.15);
+  font-size: 13px;
+  color: rgb(28 28 27 / 0.75);
+}
+
+@media (max-width: 767px) {
+  .grid { grid-template-columns: 1fr; gap: 32px; padding-block: 48px 32px; }
+}

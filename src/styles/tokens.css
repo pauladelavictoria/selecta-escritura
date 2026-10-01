@@ -1,0 +1,30 @@
+/* Tokens de diseño: colores, tipografías y medidas compartidas.
+   Cada componente tiene su propio .module.css y solo usa estas variables. */
+:root {
+  /* Papel y tinta: la base de toda la web */
+  --paper: #fbfbf9;
+  --paper-2: #f1f1ee;
+  --ink: #1c1c1b;
+  --muted: #5b5b58;
+  --rule: #dcdcd7;
+
+  /* Colores de marca: el rosa es el único acento; turquesa y azul solo en bloques puntuales */
+  --accent: #e55e82;
+  --teal: #65abab;
+  --deep: #135d7a;
+
+  --font-serif: 'Newsreader Variable', Georgia, serif;
+  --font-sans: 'Geist Variable', system-ui, sans-serif;
+
+  --container: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --header-h: 77px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 200ms;
+  --slow: 400ms;
+}
+
+@media (max-width: 1024px) {
+  :root { --header-h: 61px; }
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import styles from './ContactForm.module.css'
 
 // Netlify Forms: el formulario gemelo oculto en index.html permite que Netlify lo detecte al desplegar.
 // El email de destino de los avisos se configura en el panel de Netlify, no en el código.
@@ -32,7 +33,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form name={FORM_NAME} className="contact-form" onSubmit={handleSubmit}>
+    <form name={FORM_NAME} className={styles.form} onSubmit={handleSubmit}>
       <input type="hidden" name="form-name" value={FORM_NAME} />
       <p hidden>
         <label>
@@ -40,39 +41,39 @@ export default function ContactForm() {
         </label>
       </p>
 
-      <label className="field">
+      <label className={styles.field}>
         <span>Nombre *</span>
         <input name="nombre" placeholder="Su nombre" required autoComplete="given-name" />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Apellidos *</span>
         <input name="apellidos" placeholder="Su apellido" required autoComplete="family-name" />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Correo electrónico *</span>
         <input type="email" name="email" placeholder="Su email" required autoComplete="email" />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Teléfono</span>
         <input type="tel" name="telefono" placeholder="Número de teléfono" autoComplete="tel" />
       </label>
-      <label className="field field--full">
+      <label className={`${styles.field} ${styles.full}`}>
         <span>Mensaje</span>
         <textarea name="mensaje" rows="6" placeholder="Su mensaje va aquí" />
       </label>
-      <label className="field--check field--full">
+      <label className={`${styles.check} ${styles.full}`}>
         <input type="checkbox" name="privacidad" value="acepto" required />
         <span>
           Acepto vuestras <Link to="/politica-de-privacidad">políticas de privacidad</Link> *
         </span>
       </label>
 
-      <div className="field--full contact-form__footer">
+      <div className={`${styles.full} ${styles.footer}`}>
         <button type="submit" className="button" disabled={status === 'sending'}>
           {status === 'sending' ? 'Enviando…' : 'Enviar'}
         </button>
         {messages[status] && (
-          <p className={`contact-form__status contact-form__status--${status}`} role="status">
+          <p className={`${styles.status} ${styles[status] ?? ''}`} role="status">
             {messages[status]}
           </p>
         )}

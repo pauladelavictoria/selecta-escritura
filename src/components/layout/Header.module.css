@@ -1,0 +1,57 @@
+/* Colores de la cabecera en variables: la barra de contacto y el menú los heredan */
+.header {
+  --header-fg: var(--ink);
+  --header-muted: var(--muted);
+  --header-rule: var(--rule);
+  --header-hover: var(--deep);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid var(--header-rule);
+  color: var(--header-fg);
+  transition: background-color var(--slow) var(--ease), color var(--slow) var(--ease), border-color var(--slow) var(--ease);
+}
+
+/* Portada: la cabecera queda fija encima de la foto en lugar de empujarla hacia abajo */
+.overlay { position: fixed; left: 0; right: 0; }
+.transparent {
+  --header-fg: var(--paper);
+  --header-muted: rgb(251 251 249 / 0.8);
+  --header-rule: rgb(251 251 249 / 0.25);
+  --header-hover: var(--paper);
+  background: transparent;
+}
+/* Degradado negro suave detrás de la cabecera transparente, que se alarga un poco por debajo */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 -64px;
+  z-index: -1;
+  background: linear-gradient(180deg, rgb(28 28 27 / 0.6), rgb(28 28 27 / 0.3) 55%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--slow) var(--ease);
+}
+.transparent::before { opacity: 1; }
+
+/* Marca los primeros píxeles de la página: en cuanto se hace scroll, la cabecera pasa a ser sólida */
+.sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 4px; pointer-events: none; }
+
+.main { display: flex; align-items: center; gap: 16px; min-height: 76px; }
+.logo { margin-right: auto; }
+.logo img { width: 168px; height: auto; }
+.toggle {
+  display: none;
+  padding: 8px;
+  margin-right: -8px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .main { min-height: 60px; }
+  .logo img { width: 136px; }
+  .toggle { display: grid; place-items: center; }
+}

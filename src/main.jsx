@@ -1,6 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import '@fontsource-variable/newsreader/opsz.css'
+import '@fontsource-variable/newsreader/opsz-italic.css'
+import '@fontsource-variable/geist/wght.css'
+import './styles/tokens.css'
+import './styles/base.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(

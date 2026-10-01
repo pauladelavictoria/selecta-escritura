@@ -1,15 +1,25 @@
+import BrandComma from '../ui/BrandComma'
 import { site } from '../../lib/content'
+import styles from './Hero.module.css'
+
+// La frase de site.yml se parte en la afirmación (a tamaño de cartel) y sus «para…», apilados al lado.
+const [statement, ...clauses] = site.tagline.split(/\s(?=para\s)/)
 
 export default function Hero() {
   return (
-    <section className="hero">
-      <div className="hero__stage">
-        <div className="hero__bubble">
-          <h5>{site.tagline}</h5>
-        </div>
-      </div>
-      <div className="hero__brand">
-        <img src="/images/logo-selectaescritura-black.svg" alt="Selecta Escritura" />
+    <section className={styles.hero}>
+      <div className={`container ${styles.inner}`}>
+        <h1 className={styles.statement}>
+          {statement}
+          <BrandComma className={styles.comma} />
+        </h1>
+        {clauses.length > 0 && (
+          <ul className={styles.clauses}>
+            {clauses.map((clause, i) => (
+              <li key={clause} style={{ '--i': i }}>{clause}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   )

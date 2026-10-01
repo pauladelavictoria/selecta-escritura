@@ -1,0 +1,313 @@
+.discover {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: end;
+  padding-block: clamp(80px, 11vw, 176px);
+}
+
+/* El título a tamaño de cartel junto a la balda: se mide con el ancho de su columna para no salirse nunca */
+.headingBox {
+  align-self: start;
+  container-type: inline-size;
+}
+
+.heading {
+  font-size: min(22cqi, 8.5rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  padding-bottom: 0.08em;
+}
+
+/* Estantería: libros de lomo liso apoyados sobre una balda */
+.shelf {
+  --book-h: 520px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  padding-inline: 24px;
+  border-bottom: 2px solid var(--ink);
+}
+
+/* Cada libro tiene su propia perspectiva, centrada en él, para que se incline de frente y no de lado */
+.book {
+  --bg: var(--teal);
+  --ink-on: var(--ink);
+  position: relative;
+  flex: 1 1 0;
+  max-width: 104px;
+  height: var(--book-h);
+  perspective: 1000px;
+  perspective-origin: 50% 2%;
+}
+
+.spine {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 24px;
+  background: var(--bg);
+  color: var(--ink-on);
+  /* Gira sobre su borde inferior: al tirar desde arriba, la parte de arriba sale hacia la pantalla */
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+  transition: transform var(--slow) var(--ease), box-shadow var(--slow) var(--ease);
+}
+
+/* Cabezada y pie del lomo: dos filetes finos, como en un libro encuadernado */
+.spine::before,
+.spine::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 0;
+  border-top: 1px solid currentColor;
+  opacity: 0.4;
+}
+
+.spine::before {
+  top: 12px;
+}
+
+.spine::after {
+  bottom: 12px;
+}
+
+.book:nth-child(4n + 2) {
+  --bg: var(--deep);
+  --ink-on: var(--paper);
+}
+
+.book:nth-child(4n + 3) {
+  --bg: var(--accent);
+}
+
+.book:nth-child(4n) {
+  --bg: var(--ink);
+  --ink-on: var(--paper);
+}
+
+/* Alturas ligeramente distintas, como en una estantería real */
+.book:nth-child(odd) {
+  height: calc(var(--book-h) - 28px);
+}
+
+.book:nth-child(3n) {
+  height: calc(var(--book-h) - 52px);
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+/* Recorta la S a la altura de su mayúscula para que el círculo la centre de verdad */
+.mark span {
+  padding-top: 0.06em;
+}
+
+@supports (text-box: trim-both cap alphabetic) {
+  .mark span {
+    padding-top: 0;
+    text-box: trim-both cap alphabetic;
+  }
+}
+
+/* El título ocupa el espacio que queda bajo la S y se centra en él */
+.title {
+  /* margin-top/bottom y no margin-block: con texto vertical, «block» sería izquierda/derecha */
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-top: 8px;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.1vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Cara superior: plegada hacia atrás desde el canto del lomo, de canto (invisible) mientras el libro está recto.
+   Los laterales y el frente son las tapas (color del libro); el rectángulo claro, el bloque de páginas. */
+.top {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 280px;
+  background: var(--bg);
+  transform-origin: bottom center;
+  transform: rotateX(90deg);
+  backface-visibility: hidden;
+}
+
+.top::before {
+  content: '';
+  position: absolute;
+  inset: 0 5px 5px;
+  /* Las páginas se oscurecen hacia el fondo del libro (arriba en esta cara) para dar profundidad */
+  background:
+    linear-gradient(0deg, transparent, rgb(28 28 27 / 0.18)),
+    repeating-linear-gradient(90deg, rgb(28 28 27 / 0.07) 0 1px, transparent 1px 3px),
+    var(--paper-2);
+}
+
+/* Al pasar por encima, el libro se inclina hacia delante como al sacarlo tirando desde arriba */
+/* Sombra suave sobre la balda, bajo el libro que se saca */
+.book::after {
+  content: '';
+  position: absolute;
+  left: -30%;
+  right: -30%;
+  bottom: -40px;
+  z-index: -1;
+  height: 50px;
+  background: radial-gradient(closest-side, rgb(28 28 27 / 0.2), transparent);
+  opacity: 0;
+  transform: scaleX(0.8);
+  transition: opacity var(--slow) var(--ease), transform var(--slow) var(--ease);
+  pointer-events: none;
+}
+
+.book:is(:hover, :focus-visible) {
+  z-index: 1;
+}
+
+.book:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  transform: none;
+}
+
+.book:is(:hover, :focus-visible) .spine {
+  /* Sale de la balda hacia delante y un poco hacia abajo antes de inclinarse */
+  transform: translate3d(0, 2px, 24px) rotateX(-14deg);
+}
+
+.book:active .spine {
+  transform: translate3d(0, 3px, 32px) rotateX(-18deg);
+  transition-duration: var(--fast);
+}
+
+@media (max-width: 1024px) {
+  .discover {
+    grid-template-columns: 1fr;
+  }
+
+  .shelf {
+    --book-h: 420px;
+    gap: 6px;
+  }
+}
+
+/* En móvil los libros se apilan tumbados y asoman hacia un lado */
+@media (max-width: 767px) {
+
+  /* Libros tumbados: sin inclinación 3D */
+  .book {
+    perspective: none;
+  }
+
+  .top,
+  .book::after {
+    display: none;
+  }
+
+  .heading {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+
+  .shelf {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 0;
+    border-bottom: 0;
+    border-left: 2px solid var(--ink);
+  }
+
+  .book,
+  .book:nth-child(n) {
+    flex: none;
+    max-width: none;
+    height: 64px;
+  }
+
+  .spine {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 0 20px 0 16px;
+    transform-origin: left center;
+  }
+
+  .spine::before,
+  .spine::after {
+    top: 8px;
+    bottom: 8px;
+    left: auto;
+    right: auto;
+    width: 0;
+    height: auto;
+    border-top: 0;
+    border-left: 1px solid currentColor;
+  }
+
+  .spine::before {
+    left: 6px;
+  }
+
+  .spine::after {
+    right: 6px;
+  }
+
+  .book:nth-child(3n + 1) {
+    margin-right: 18px;
+  }
+
+  .book:nth-child(3n + 2) {
+    margin-right: 4px;
+  }
+
+  .book:nth-child(3n) {
+    margin-right: 30px;
+  }
+
+  .book:is(:hover, :focus-visible) .spine {
+    transform: translateX(10px);
+  }
+
+  .book:active .spine {
+    transform: translateX(6px);
+  }
+
+  .title {
+    margin: 0;
+    writing-mode: horizontal-tb;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .mark {
+    order: -1;
+    width: 28px;
+    font-size: 0.95rem;
+    flex: none;
+  }
+}

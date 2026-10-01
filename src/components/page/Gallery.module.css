@@ -1,0 +1,4 @@
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 48px; }
+.gallery a { overflow: hidden; background: var(--paper-2); }
+.gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform var(--slow) var(--ease); }
+.gallery a:hover img { transform: scale(1.04); }

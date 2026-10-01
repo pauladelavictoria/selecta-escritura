@@ -1,0 +1,24 @@
+.hero { padding-block: clamp(32px, 5vw, 64px) clamp(40px, 6vw, 88px); }
+.crumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: clamp(40px, 6vw, 88px); font-size: 14px; color: var(--muted); }
+.crumbs a { transition: color var(--fast) var(--ease); }
+.crumbs a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+.kicker {
+  margin: 0 0 0.2em;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--accent);
+}
+/* Título a tamaño de cartel, con escalones según su longitud */
+.title {
+  max-width: 14ch;
+  font-size: clamp(3.4rem, 11vw, 11rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  padding-bottom: 0.05em;
+}
+.medium { max-width: 16ch; font-size: clamp(2.8rem, 7.5vw, 7.5rem); line-height: 0.92; }
+.long { max-width: 22ch; font-size: clamp(2.2rem, 5vw, 5rem); line-height: 1; letter-spacing: -0.03em; }

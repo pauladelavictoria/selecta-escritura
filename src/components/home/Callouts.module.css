@@ -1,0 +1,33 @@
+.band { background: var(--deep); color: var(--paper); padding-block: clamp(24px, 4vw, 56px); }
+
+/* Cada propuesta es una fila con el título a tamaño de cartel */
+.callout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 32px;
+  padding-block: clamp(28px, 4vw, 56px);
+}
+.callout + .callout { border-top: 1px solid rgb(251 251 249 / 0.3); }
+
+.title {
+  font-size: clamp(3rem, 9vw, 10rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  padding-bottom: 0.06em;
+  transition: transform var(--slow) var(--ease), font-style var(--slow);
+}
+.side { display: grid; gap: 10px; justify-items: end; padding-bottom: 1.2em; text-align: right; }
+.text { font-size: 1.05rem; }
+.cta { font-weight: 600; white-space: nowrap; }
+.cta span { display: inline-block; transition: transform var(--fast) var(--ease); }
+
+.callout:hover .title { transform: translateX(clamp(8px, 1.5vw, 24px)); font-style: italic; }
+.callout:hover .cta span { transform: translateX(4px); }
+
+@media (max-width: 767px) {
+  .callout { grid-template-columns: 1fr; gap: 16px; }
+  .title { font-size: clamp(2.8rem, 14vw, 4rem); }
+  .side { justify-items: start; padding-bottom: 0; text-align: left; }
+}

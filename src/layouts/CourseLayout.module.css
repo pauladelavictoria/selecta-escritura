@@ -1,0 +1,19 @@
+.course {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+  padding-block: clamp(40px, 6vw, 72px) clamp(72px, 10vw, 120px);
+}
+.aside { position: sticky; top: calc(var(--header-h) + 24px); }
+/* Ficha del curso en bloque de tinta: el contraste fuerte de la página */
+.box { display: grid; gap: 24px; padding: 32px 28px 28px; background: var(--ink); color: var(--paper); }
+.status { margin: 0; font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; line-height: 1.15; color: var(--accent); }
+.box :global(dl) { --rule: rgb(251 251 249 / 0.2); --muted: rgb(251 251 249 / 0.65); }
+.box :global(.button) { width: 100%; text-align: center; }
+.box :global(.button:hover) { background: var(--paper); color: var(--ink); }
+
+@media (max-width: 1024px) {
+  .course { grid-template-columns: 1fr; }
+  .aside { position: static; order: -1; }
+}

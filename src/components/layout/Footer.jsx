@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../ui/Icon'
 import SmartLink from '../ui/SmartLink'
 import { site } from '../../lib/content'
+import styles from './Footer.module.css'
 
 const YEAR = new Date().getFullYear()
 
@@ -14,15 +15,13 @@ const contactItems = [
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="container footer__grid">
-        <div className="footer__brand">
-          <Link to="/">
-            <img src="/images/logo-selectaescritura-color.svg" alt="Selecta Escritura" />
-          </Link>
-        </div>
+    <footer className={styles.footer}>
+      <div className={`container ${styles.grid}`}>
+        <Link to="/" className={styles.brand}>
+          <img src="/images/logo-selectaescritura-color.svg" alt="Selecta Escritura" />
+        </Link>
 
-        <ul className="footer__links">
+        <ul className={styles.links}>
           {site.legalLinks.map((link) => (
             <li key={link.href}>
               <SmartLink href={link.href}>{link.label}</SmartLink>
@@ -30,7 +29,7 @@ export default function Footer() {
           ))}
         </ul>
 
-        <ul className="footer__contact">
+        <ul className={styles.contact}>
           {contactItems.map((item) => (
             <li key={item.icon}>
               <SmartLink href={item.href}>
@@ -40,7 +39,9 @@ export default function Footer() {
           ))}
         </ul>
       </div>
-      <p className="footer__copy">© {YEAR} Selecta Escritura</p>
+      <div className="container">
+        <p className={styles.copy}>© {YEAR} Selecta Escritura</p>
+      </div>
     </footer>
   )
 }

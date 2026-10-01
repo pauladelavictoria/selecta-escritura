@@ -1,0 +1,30 @@
+.intro { overflow: clip; background: var(--ink); color: var(--paper); }
+.inner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px);
+  align-items: center;
+  padding-block: clamp(72px, 10vw, 160px);
+}
+.comma {
+  grid-column: 1 / span 3;
+  justify-self: center;
+  width: auto;
+  height: clamp(10rem, 22vw, 22rem);
+  color: var(--accent);
+}
+.lead {
+  grid-column: 5 / -1;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 3.4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+@media (max-width: 767px) {
+  .comma { grid-column: 1 / -1; justify-self: start; height: 7rem; margin-bottom: 32px; }
+  .lead { grid-column: 1 / -1; font-size: 1.75rem; }
+}

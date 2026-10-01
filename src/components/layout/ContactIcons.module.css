@@ -1,0 +1,14 @@
+.icons { display: flex; gap: 2px; padding-left: 16px; border-left: 1px solid var(--header-rule); }
+.icons a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--header-fg);
+  transition: color var(--fast) var(--ease);
+}
+.icons a:hover { color: var(--header-hover); }
+
+@media (max-width: 1024px) {
+  .icons { margin-left: auto; padding-left: 0; border-left: 0; }
+}

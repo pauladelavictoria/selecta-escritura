@@ -20,6 +20,8 @@ content/
 src/
   layouts/            # plantillas de página (ver abajo)
   components/         # layout/ (cabecera, pie), home/ (portada), page/ (piezas de páginas), ui/
+  styles/             # tokens.css (colores, tipografías) y base.css (estilos globales y .prose)
+                      # cada componente lleva su propio Nombre.module.css al lado
   lib/content.js      # carga y consulta el contenido
 public/
   admin/              # panel de edición (Decap CMS)

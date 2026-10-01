@@ -1,0 +1,57 @@
+/* Listados como índice de libro: filas con el título grande y el cartel a un lado */
+.index { margin-top: clamp(40px, 6vw, 80px); border-top: 2px solid var(--ink); }
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 3fr) minmax(0, 3fr);
+  gap: clamp(20px, 3vw, 48px);
+  align-items: start;
+  padding-block: clamp(28px, 3.5vw, 48px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.title {
+  font-size: clamp(2rem, 4.6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  padding-bottom: 0.05em;
+  transition: color var(--fast) var(--ease), transform var(--slow) var(--ease);
+}
+.body { display: grid; gap: 14px; padding-top: 0.6em; }
+.summary {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+.more { font-size: 15px; font-weight: 600; }
+.more span { display: inline-block; transition: transform var(--fast) var(--ease); }
+
+/* Cartel siempre entero (muchos llevan texto) */
+.media { position: relative; aspect-ratio: 4 / 3; }
+.media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top right;
+  transition: transform var(--slow) var(--ease);
+}
+
+.card:is(:hover, :focus-visible) .title { color: var(--deep); font-style: italic; transform: translateX(12px); }
+.card:is(:hover, :focus-visible) .more span { transform: translateX(4px); }
+.card:is(:hover, :focus-visible) .media img { transform: scale(1.04); }
+
+@media (max-width: 767px) {
+  .card { grid-template-columns: minmax(0, 1fr) 112px; gap: 8px 20px; }
+  .title { grid-column: 1; font-size: 2rem; }
+  .media { grid-column: 2; grid-row: 1 / span 2; }
+  .body { grid-column: 1; padding-top: 4px; }
+  .summary { -webkit-line-clamp: 3; }
+}
