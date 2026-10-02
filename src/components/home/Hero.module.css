@@ -20,7 +20,6 @@
   background: url('/images/typing-in-water.jpg') center 50% / cover no-repeat;
 }
 
-/* Velo para que el texto se lea sobre la foto */
 .hero::after {
   content: '';
   position: absolute;
