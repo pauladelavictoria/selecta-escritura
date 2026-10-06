@@ -54,6 +54,11 @@ content:
       - name: body
         label: Contenido
         type: rich-text
+      - name: signup
+        label: Botón «Quiero apuntarme»
+        type: boolean
+        default: false
+        description: Añade un botón que abre un email a Selecta con el título de la página como asunto.
       # Cursos
       - name: status
         label: "Curso: aviso destacado"
@@ -210,7 +215,6 @@ content:
             options:
               values:
                 - { name: gift, label: Regalo }
-                - { name: member, label: Carné de socio }
                 - { name: heart, label: Corazón }
                 - { name: book, label: Libro }
 

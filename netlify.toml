@@ -5,6 +5,12 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# URL antigua del WordPress
+[[redirects]]
+  from = "/taller-de-experiencias-2"
+  to = "/taller-de-experiencias"
+  status = 301
+
 # SPA: cualquier ruta sin archivo propio la resuelve React Router.
 [[redirects]]
   from = "/*"

@@ -163,7 +163,6 @@ collections:
                 widget: select
                 options:
                   - { label: Regalo, value: gift }
-                  - { label: Carné de socio, value: member }
                   - { label: Corazón, value: heart }
                   - { label: Libro, value: book }
       - name: menu

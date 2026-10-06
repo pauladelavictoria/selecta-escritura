@@ -4,8 +4,8 @@
   isolation: isolate;
   display: grid;
   align-items: end;
-  /* Ocupa toda la pantalla: la cabecera flota encima */
-  min-height: 100dvh;
+  /* Ocupa toda la pantalla: la cabecera flota encima. svh y no dvh: en móvil dvh cambia al ocultarse la barra del navegador y la página salta */
+  min-height: 100svh;
   padding-top: var(--header-h);
   background: var(--ink);
   color: var(--paper);
@@ -89,7 +89,7 @@
 
 @media (max-width: 767px) {
   .hero {
-    min-height: 88dvh;
+    min-height: 88svh;
   }
 
   /* En vertical la foto sin voltear deja la cara a la derecha, por encima del texto */

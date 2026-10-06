@@ -6,7 +6,7 @@ summary: Talleres, programación de nuestros talleres por mes
 items:
   - narrativa-i
   - taller-de-escritura-creativa-de-kike-parra-y-barbara-blasco
-  - taller-de-poesia-de-andres-garcia-cerdan
+  - el-misterio-de-la-poesia
   - taller-guion
   - narrativaii
   - las-mil-caras-del-relato

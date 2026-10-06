@@ -1,5 +1,6 @@
 import PageHero from '../components/page/PageHero'
 import Gallery from '../components/page/Gallery'
+import ContactButton from '../components/page/ContactButton'
 import Markdown from '../components/ui/Markdown'
 import styles from './PageLayout.module.css'
 
@@ -11,6 +12,11 @@ export default function PageLayout({ page, children, showImage = true }) {
       <div className={`container ${styles.content}`}>
         {showImage && page.image && <img className="page-image" src={page.image} alt="" />}
         <Markdown>{page.body}</Markdown>
+        {page.signup && (
+          <p className={styles.signup}>
+            <ContactButton subject={page.title} label="Quiero apuntarme" />
+          </p>
+        )}
         {children}
         <Gallery images={page.gallery} />
       </div>

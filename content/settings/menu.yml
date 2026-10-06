@@ -60,7 +60,7 @@ items:
       - { label: Correcciones y asesoramiento literario, href: /correcciones-y-asesoramiento-literario }
       - { label: Edición y maquetación, href: /edicion-y-maquetacion }
   - label: Taller de experiencias
-    href: /taller-de-experiencias-2
+    href: /taller-de-experiencias
     children:
       - { label: Escribir a ras de l´Albufera, href: /escribir-a-ras-de-lalbufera }
       - { label: Narrativas visuales, href: /narrativas-visuales }

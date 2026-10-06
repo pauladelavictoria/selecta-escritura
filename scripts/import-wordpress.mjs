@@ -41,8 +41,7 @@ const ARCHIVES = [
   { file: 'exposiciones', category: 'exposiciones', kicker: 'Todas nuestras' },
   { file: 'servicios', category: 'servicios', kicker: 'Todos nuestros' },
   // En WordPress es una página vacía; aquí se muestra como listado de su categoría.
-  { file: 'taller-de-experiencias-2', category: 'talleres-experiencias', title: 'Taller de experiencias' },
-  { file: 'eventos-viernes-de-selecta', category: 'viernes-de-selecta', kicker: 'Todas nuestras', path: '/eventos/viernes-de-selecta' },
+  { file: 'taller-de-experiencias', category: 'talleres-experiencias', title: 'Taller de experiencias' },
   { file: 'profesorado', category: 'profesorado', kicker: 'Todo nuestro', layout: 'team', groups: ['claustro', 'invitadas'] },
   { file: 'profesorado-claustro', category: 'claustro', kicker: 'Todo nuestro', layout: 'team', groups: ['claustro'], path: '/profesorado/claustro' },
   {
