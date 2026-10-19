@@ -1,8 +1,13 @@
 ---
 title: CARIÑAR festival literario
 layout: page
-summary: CARIÑAR FESTIVAL LITERARIO22, 23 y 24 de mayo de 2026 Cariñar es una palabra muy escuchada aún en las zonas rurales aragonesas y expresa cariñoy aprecio; esa sensación profunda de cercanía emocional y el deseo de cuidar de alguienquerido. Por eso, nos gusta cariñarnos de algunas personas, las mejores que pasan pornuestras vidas. Y nos gusta cariñarnos […]
+summary: CARIÑAR FESTIVAL LITERARIO 22, 23 y 24 de mayo de 2026 Cariñar es una
+  palabra muy escuchada aún en las zonas rurales aragonesas y expresa cariñoy
+  aprecio; esa sensación profunda de cercanía emocional y el deseo de cuidar de
+  alguienquerido. Por eso, nos gusta cariñarnos de algunas personas, las mejores
+  que pasan por nuestras vidas. Y nos gusta cariñarnos […]
 image: /uploads/2026-04-CARTEL-OFICIAL-1.jpg
+finished: false
 ---
 ![](/uploads/2026-04-CARINAR-programa-vertical-819x1024.jpg)
 
