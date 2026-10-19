@@ -1,6 +1,7 @@
 ---
 title: Poesía con Andrés García Cerdán
 layout: page
+signup: true
 summary: "Cuándo: del lunes 13 de octubre al lunes 12 de enero (12 sesiones, 3 mensualidades) Horario: lunes de 18 a 20h. Precio: 110€/mensualidad Modalidad: por Zoom IdearioEn tiempos necios como estos en los que vivimos, el librosigue siendo un lugar sagrado y, en consecuencia, un lugar deresistencia.El libro es también un “no lugar”, un espacio […]"
 image: /uploads/2022-08-publi-zoom-4.jpg
 ---

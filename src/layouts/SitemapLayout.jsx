@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import PageHero from '../components/page/PageHero'
 import SmartLink from '../components/ui/SmartLink'
-import AddressMap from '../components/page/AddressMap'
-import Icon from '../components/ui/Icon'
 import { home, menu, site } from '../lib/content'
 import styles from './SitemapLayout.module.css'
 
@@ -103,14 +101,6 @@ export default function SitemapLayout({ page }) {
     <article>
       <PageHero kicker={page.kicker} title={page.title} />
       <div className={`container ${styles.sitemap}`}>
-        <section className={styles.location}>
-          <h2>Dónde estamos</h2>
-          <SmartLink href={site.mapsUrl} className={styles.address}>
-            <Icon name="pin" size={18} /> {site.address}
-          </SmartLink>
-          <AddressMap />
-        </section>
-
         <div className={styles.search}>
           <label htmlFor="sitemap-search">¿Qué estás buscando?</label>
           <input

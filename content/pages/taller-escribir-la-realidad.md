@@ -1,6 +1,7 @@
 ---
 title: Taller ESCRIBIR LA REALIDAD
 layout: page
+signup: true
 summary: ESCRIBIR LA REALIDAD Desde CEAR ponemos en marcha el taller “Escribir la realidad”, un taller onlinede escritura creativa dirigido al público general, impartido por Kike Parra,escritor y profesor de creación literaria. Este taller es eminentemente práctico. Va, sobre todo, de escribir con libertad:de perder el miedo a juntar palabras, de probar, de equivocarse […]
 ---
 ![](/uploads/2026-03-Cartel-Web-1200x800-1.jpg)

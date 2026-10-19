@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom'
 import Icon from '../ui/Icon'
 import SmartLink from '../ui/SmartLink'
-import { site } from '../../lib/content'
+import { contactLinks, site } from '../../lib/content'
 import styles from './Footer.module.css'
 
 const YEAR = new Date().getFullYear()
 
 const contactItems = [
-  { icon: 'phone', label: site.phoneDisplay, href: `tel:+34${site.phone}` },
-  { icon: 'mail', label: site.email, href: `mailto:${site.email}?subject=Contacto%20Web` },
-  { icon: 'pin', label: site.address, href: site.mapsUrl },
-  { icon: 'whatsapp', label: site.phone, href: `https://api.whatsapp.com/send?phone=${site.phone}` },
+  { icon: 'phone', label: site.phoneDisplay, href: contactLinks.phone },
+  { icon: 'mail', label: site.email, href: `${contactLinks.email}?subject=Contacto%20Web` },
+  { icon: 'pin', label: site.address, href: contactLinks.maps },
+  { icon: 'whatsapp', label: site.phone, href: contactLinks.whatsapp },
 ]
 
 export default function Footer() {

@@ -1,0 +1,58 @@
+# Publica cada noche a las 00:00 (hora de Madrid) lo editado en Pages CMS.
+# Pages CMS guarda en la rama `contenido`; al pasarla a `main`, Netlify despliega una sola vez con todo junto.
+# También se puede lanzar a mano desde GitHub: Actions → Publicar contenido → Run workflow.
+name: Publicar contenido
+
+on:
+  schedule:
+    # Cron va en UTC: las 00:00 de Madrid son las 22:00 UTC en horario de verano y las 23:00 en invierno.
+    - cron: '0 22 * * *'
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: publicar-contenido
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comprobar que es la ejecución de medianoche en Madrid
+        id: hora
+        run: |
+          offset=$(TZ=Europe/Madrid date +%z)
+          case "${{ github.event_name }}/${{ github.event.schedule }}/$offset" in
+            workflow_dispatch/*|schedule/"0 22 * * *"/+0200|schedule/"0 23 * * *"/+0100) echo "seguir=true" >> "$GITHUB_OUTPUT" ;;
+            *) echo "No toca: en este horario la medianoche de Madrid es la otra ejecución." ;;
+          esac
+
+      - uses: actions/checkout@v4
+        if: steps.hora.outputs.seguir == 'true'
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Pasar `contenido` a `main`
+        if: steps.hora.outputs.seguir == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if ! git rev-parse --verify --quiet origin/contenido; then
+            git push origin main:contenido
+            echo "Rama contenido creada a partir de main."
+            exit 0
+          fi
+
+          if [ "$(git rev-list --count main..origin/contenido)" -gt 0 ]; then
+            git merge --no-edit origin/contenido -m "Publica el contenido editado en Pages CMS"
+            git push origin main
+          else
+            echo "Sin cambios de contenido: no se despliega."
+          fi
+
+          # `contenido` se pone al día con `main` para que el CMS vea también los cambios de código y de .pages.yml.
+          # Si alguien guardó justo ahora, el push se rechaza sin perder nada y se reintenta la noche siguiente.
+          git push origin main:contenido || echo "contenido ha cambiado mientras tanto; se sincroniza mañana."

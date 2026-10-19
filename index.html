@@ -2,7 +2,9 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/images/logo-selectaescritura-black.svg" />
+    <link rel="icon" href="/images/favicon-selecta-100x100.png" sizes="32x32" />
+    <link rel="icon" href="/images/favicon-selecta-300x300.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/images/favicon-selecta-300x300.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fbfbf9" />
     <meta name="description" content="Selecta Escritura – Escuela de escritura online y en Valencia." />
@@ -10,11 +12,16 @@
   </head>
   <body>
     <div id="root"></div>
-    <!-- Copia estática del formulario de contacto para que Netlify Forms lo detecte al desplegar.
-         Los campos deben coincidir con src/components/page/ContactForm.jsx -->
+    <!-- Copias estáticas para que Netlify Forms detecte los formularios al desplegar.
+         Sus campos deben coincidir con ContactForm.jsx, SignupButton.jsx y NetlifyForm.jsx -->
     <form name="contacto" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input name="nombre" /><input name="apellidos" /><input type="email" name="email" />
       <input type="tel" name="telefono" /><textarea name="mensaje"></textarea>
+      <input type="checkbox" name="privacidad" /><input name="bot-field" />
+    </form>
+    <form name="inscripcion" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input name="curso" /><input name="nombre" /><input type="tel" name="telefono" />
+      <input type="email" name="email" /><input name="asunto" /><textarea name="mensaje"></textarea>
       <input type="checkbox" name="privacidad" /><input name="bot-field" />
     </form>
     <script type="module" src="/src/main.jsx"></script>

@@ -1,6 +1,6 @@
 # Selecta Escritura
 
-Web de [selectaescritura.com](https://selectaescritura.com/) en React + Vite. Sin base de datos: el contenido vive en archivos Markdown/YAML dentro del repo y se edita desde un panel (Decap CMS).
+Web de [selectaescritura.com](https://selectaescritura.com/) en React + Vite. Sin base de datos: el contenido vive en archivos Markdown/YAML dentro del repo y se edita desde un panel (Pages CMS).
 
 ```bash
 npm install
@@ -24,7 +24,6 @@ src/
                       # cada componente lleva su propio Nombre.module.css al lado
   lib/content.js      # carga y consulta el contenido
 public/
-  admin/              # panel de edición (Decap CMS)
   uploads/            # imágenes subidas desde el panel
 ```
 
@@ -74,30 +73,27 @@ teachers: [kike-parra, barbara-blasco]
 Texto del curso…
 ```
 
-## Panel de edición para colaboradores (Pages CMS)
+## Panel de edición (Pages CMS)
 
-Para personas sin cuenta de GitHub. La configuración está en `.pages.yml`, en la raíz del repo.
+Permite editar el contenido sin tocar código, también a personas sin cuenta de GitHub. La configuración está en `.pages.yml`, en la raíz del repo.
 
 1. Entra en [app.pagescms.org](https://app.pagescms.org) con tu cuenta de GitHub y da acceso a este repo cuando lo pida.
-2. Abre el repo y ve a **Collaborators** para invitar a la persona por email. Recibirá un enlace para entrar; no necesita GitHub.
-3. Cada cambio que guarde es un commit en `main` y Netlify vuelve a publicar la web en uno o dos minutos.
+2. Abre el repo en la rama **`contenido`** (no `main`).
+3. Ve a **Collaborators** para invitar a la persona por email. Recibirá un enlace para entrar; no necesita GitHub.
 
-Si añades campos nuevos a las páginas, actualiza también `.pages.yml` (y `public/admin/config.yml` si sigues usando Decap).
+Los cambios no se publican al guardar: se acumulan en `contenido` y cada noche a las 00:00 (hora de Madrid)
+[.github/workflows/publicar-contenido.yml](.github/workflows/publicar-contenido.yml) los pasa a `main`,
+así Netlify despliega una sola vez con todo junto. Si no hay cambios, no despliega. Para publicar antes:
+GitHub → **Actions → Publicar contenido → Run workflow**.
 
-## Panel de edición (Decap CMS)
-
-- **En producción:** `https://<tu-dominio>/admin`. Inicias sesión con GitHub; cada cambio guardado es un commit y Netlify vuelve a publicar la web en uno o dos minutos.
-- **En local:** `npx decap-server` en una terminal, `npm run dev` en otra, y abre `http://localhost:5173/admin/index.html`. Los cambios se escriben directamente en los archivos.
+Si añades campos nuevos a las páginas, actualiza también `.pages.yml`.
 
 ## Despliegue en Netlify (gratis)
 
-1. En [app.netlify.com](https://app.netlify.com): **Add new site → Import an existing project → GitHub** y elige este repo. La configuración se lee de `netlify.toml`, no hay que tocar nada.
-2. Para el panel: crea una OAuth App en GitHub (**Settings → Developer settings → OAuth Apps**) con callback `https://api.netlify.com/auth/done`, y añade su Client ID y Secret en Netlify: **Site configuration → Access & security → OAuth → Install provider → GitHub**.
-3. Formulario de contacto: tras el primer despliegue, Netlify detecta el formulario `contacto` solo. Para recibir los mensajes por email ve a **Forms → Form notifications → Add notification → Email notification**, elige el formulario `contacto` y pon el email de destino. Los mensajes también quedan guardados en **Forms**. El plan gratuito incluye 100 envíos al mes.
-4. Opcional: conecta tu dominio en **Domain management**.
+1. En [app.netlify.com](https://app.netlify.com): **Add new site → Import an existing project → GitHub** y elige este repo. La configuración se lee de `netlify.toml`. En **Project configuration → Build & deploy → Branches and deploy contexts** deja **Branch deploys: None** y desactiva **Deploy previews**: solo se despliega `main`.
+2. Formularios: tras el primer despliegue, Netlify detecta solos `contacto` (página de Contacto) e `inscripcion` (botón «Quiero apuntarme» de los talleres, con el curso en el campo `curso`). Para recibir los mensajes por email ve a **Project configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**, elige *Any form* y pon `info@selectaescritura.com`. Los mensajes también quedan guardados en **Forms**. El plan gratuito incluye 100 envíos al mes.
+3. Opcional: conecta tu dominio en **Domain management**.
 
 ## Tipografías
 
-La marca usa Bazar, Canter y JMH Typewriter (con licencia, no incluidas). Si tienes los archivos,
-cópialos a `public/fonts/` con los nombres de `src/index.css`. Mientras tanto se usan
-Fraunces, Bebas Neue y Special Elite (Google Fonts).
+Newsreader (títulos) y Geist (texto), instaladas con `@fontsource-variable` e importadas en `src/main.jsx`.

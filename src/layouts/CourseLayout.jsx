@@ -1,7 +1,7 @@
 import PageHero from '../components/page/PageHero'
 import FactList from '../components/page/FactList'
 import TeacherGrid from '../components/page/TeacherGrid'
-import ContactButton from '../components/page/ContactButton'
+import SignupButton from '../components/page/SignupButton'
 import Gallery from '../components/page/Gallery'
 import Markdown from '../components/ui/Markdown'
 import { getTeachersBySlugs } from '../lib/content'
@@ -23,7 +23,7 @@ export default function CourseLayout({ page }) {
           <div className={styles.box}>
             {page.status && <p className={styles.status}>{page.status}</p>}
             <FactList facts={page.facts} />
-            <ContactButton subject={page.title} label={page.finished ? 'Avísame de la próxima edición' : 'Quiero apuntarme'} />
+            <SignupButton course={page.title} label={page.finished ? 'Avísame de la próxima edición' : undefined} />
           </div>
         </aside>
       </div>

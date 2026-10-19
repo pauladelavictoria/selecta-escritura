@@ -14,20 +14,28 @@ function parseMarkdown(raw) {
   return { data: parse(match[1]) ?? {}, body: match[2].trim() }
 }
 
-const slugOf = (file) => file.split('/').pop().replace(/\.md$/, '')
+// Las referencias pueden guardarse como «slug», «slug.md» o «content/pages/slug.md» según el CMS.
+const toSlug = (ref) => String(ref).split('/').pop().replace(/\.md$/, '')
 
 const normalizePath = (path) => '/' + path.replace(/^\/+|\/+$/g, '')
 
 function loadCollection(files) {
   return Object.entries(files).map(([file, raw]) => {
     const { data, body } = parseMarkdown(raw)
-    return { ...data, slug: slugOf(file), body }
+    return { ...data, slug: toSlug(file), body }
   })
 }
 
 export const site = parse(siteRaw)
 export const home = parse(homeRaw)
 export const menu = parse(menuRaw).items
+
+export const contactLinks = {
+  phone: `tel:+34${site.phone}`,
+  email: `mailto:${site.email}`,
+  whatsapp: `https://api.whatsapp.com/send?phone=34${site.phone}`,
+  maps: site.mapsUrl,
+}
 
 const pages = loadCollection(pageFiles).map((page) => ({
   ...page,
@@ -41,8 +49,6 @@ const pagesBySlug = new Map(pages.map((page) => [page.slug, page]))
 const teachersBySlug = new Map(teachers.map((teacher) => [teacher.slug, teacher]))
 
 export const getPageByPath = (path) => pagesByPath.get(normalizePath(path))
-// Las referencias pueden guardarse como «slug», «slug.md» o «content/pages/slug.md» según el CMS.
-const toSlug = (ref) => String(ref).split('/').pop().replace(/\.md$/, '')
 
 export const getPagesBySlugs = (slugs = []) => slugs.map((slug) => pagesBySlug.get(toSlug(slug))).filter(Boolean)
 export const getTeachersBySlugs = (slugs = []) => slugs.map((slug) => teachersBySlug.get(toSlug(slug))).filter(Boolean)

@@ -1,6 +1,7 @@
 ---
 title: El misterio de la poesía
 layout: page
+signup: true
 summary: "Cuándo: de octubre de 2026 a junio de 2027 (en nuestros talleres puedes incorporarte o darte de baja cuando quieras). Horario: miércoles de 19 a 21h Precio: 85 euros/mes. No hay matrícula. La poesía es un misterio que sólo se puede experimentar entregándose a ella. En esa entregano iremos solos, sino de la mano de […]"
 image: /uploads/2022-08-taller-de-poesia1.jpg
 ---
