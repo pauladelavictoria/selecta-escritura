@@ -48,6 +48,11 @@ export default function NetlifyForm({ name, className = '', children }) {
         </span>
       </label>
 
+      <label className={`${styles.check} ${styles.full}`}>
+        <input type="checkbox" name="novedades" value="acepto" />
+        <span>Quiero recibir por email información sobre otros talleres y actividades de Selecta</span>
+      </label>
+
       <div className={`${styles.full} ${styles.footer}`}>
         <button type="submit" className="button" disabled={status === 'sending'}>
           {status === 'sending' ? 'Enviando…' : 'Enviar'}
