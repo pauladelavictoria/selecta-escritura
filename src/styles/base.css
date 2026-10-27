@@ -73,7 +73,7 @@ h6 { font-size: 1rem; }
   margin: 0 0 40px;
 }
 
-/* Texto del Markdown */
+/* Texto con formato (RichText) */
 .prose { max-width: 68ch; line-height: 1.7; }
 .prose > * { margin-block: 0; }
 .prose > * + * { margin-top: 1em; }

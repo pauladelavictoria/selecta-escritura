@@ -1,6 +1,6 @@
 # Selecta Escritura
 
-Web de [selectaescritura.com](https://selectaescritura.com/) en React + Vite. Sin base de datos: el contenido vive en archivos Markdown/YAML dentro del repo y se edita desde un panel (Pages CMS).
+Web de [selectaescritura.com](https://selectaescritura.com/) en React + Vite. El contenido vive en [Sanity](https://www.sanity.io) y se edita desde su panel; la web lo descarga al abrirse, así que los cambios publicados se ven sin volver a desplegar.
 
 ```bash
 npm install
@@ -11,21 +11,18 @@ npm run build    # producción en dist/
 ## Dónde está cada cosa
 
 ```
-content/
-  pages/*.md          # una página por archivo; la URL es el nombre del archivo (o `path:`)
-  teachers/*.md       # fichas de profesorado, reutilizadas en cursos y en /profesorado
-  settings/site.yml   # contacto, frases, enlaces del pie
-  settings/home.yml   # portada
-  settings/menu.yml   # menú principal
+studio/               # panel de Sanity (https://selecta-escritura.sanity.studio)
+  schemaTypes/        # campos de cada tipo de documento
+content/              # contenido en Markdown/YAML de antes de Sanity; solo lo usa scripts/migrar-a-sanity.mjs
 src/
   layouts/            # plantillas de página (ver abajo)
   components/         # layout/ (cabecera, pie), home/ (portada), page/ (piezas de páginas), ui/
   styles/             # tokens.css (colores, tipografías) y base.css (estilos globales y .prose)
                       # cada componente lleva su propio Nombre.module.css al lado
-  lib/content.js      # carga y consulta el contenido
-public/
-  uploads/            # imágenes subidas desde el panel
+  lib/content.js      # descarga el contenido de Sanity y lo consulta
 ```
+
+`.env` guarda el Project ID de Sanity (no es secreto). Los tokens van en `.env.local`, que no se sube.
 
 ## Importar el contenido del WordPress original
 
@@ -41,52 +38,41 @@ npm run import:wp -- --force # borra content/pages y content/teachers y reimport
 - Los listados (Talleres, Eventos, Claustro…) a partir de las categorías, con su nombre y descripción.
 - Las imágenes en `public/uploads/`, y los enlaces a `selectaescritura.com` reescritos como rutas locales.
 
-Qué categoría genera cada listado se configura en `ARCHIVES`, al principio del script. Ojo: `--force` sobrescribe lo editado desde el panel.
+Qué categoría genera cada listado se configura en `ARCHIVES`, al principio del script. Desde el paso a Sanity solo sirve para regenerar `content/` antes de migrar.
 
 ## Tipos de página
 
-Cada `.md` elige su plantilla con el campo `layout` del frontmatter:
+Cada página elige su plantilla con el campo «Tipo de página» (`layout`) y el panel solo muestra los campos de ese tipo:
 
 | layout    | Para qué                                   | Campos propios                   |
 |-----------|--------------------------------------------|----------------------------------|
-| `page`    | Texto genérico                             | `gallery`                        |
+| `page`    | Texto genérico                             |                                  |
 | `course`  | Curso o taller, con ficha lateral          | `facts`, `teachers`, `status`, `finished` |
-| `listing` | Tarjetas que enlazan a otras páginas       | `items` (nombres de archivo)     |
+| `listing` | Tarjetas que enlazan a otras páginas       | `items` (referencias a páginas)  |
 | `team`    | Profesorado                                | `groups` (`claustro`, `invitadas`) |
-| `contact` | Contacto con los datos de `site.yml`       |                                  |
+| `contact` | Contacto con los «Datos de contacto»       |                                  |
 | `sitemap` | Mapa del sitio generado desde el menú      |                                  |
 
-Todos admiten `title`, `kicker` (antetítulo), `summary` (texto de la tarjeta), `image` y el cuerpo en Markdown.
+Todos admiten `title`, `slug` (la URL), `kicker` (antetítulo), `path` (URL personalizada), `summary` (texto de la tarjeta), `image`, `body` (texto con formato) y `gallery`.
 
-Ejemplo de curso:
+## Panel de edición (Sanity)
 
-```md
----
-title: Narrativa
-layout: course
-image: /uploads/narrativa.jpg
-facts:
-  - { label: Horario, value: "Martes, de 19 a 21 h." }   # comillas si el valor lleva comas
-teachers: [kike-parra, barbara-blasco]
----
-## Descripción
-Texto del curso…
+Permite editar el contenido sin tocar código ni Markdown, con un editor visual.
+
+- Panel: [selecta-escritura.sanity.studio](https://selecta-escritura.sanity.studio). Cada cambio se guarda como borrador y llega a la web al pulsar **Publicar**.
+- Invitar a alguien: [sanity.io/manage](https://www.sanity.io/manage) → el proyecto → **Members → Invite**, con el rol **Editor**.
+- Desarrollo del panel: `cd studio && npm install && npm run dev` (en http://localhost:3333).
+- Si cambias los campos en `studio/schemaTypes/`, publica el panel con `cd studio && npm run deploy` y ajusta la consulta de `src/lib/content.js`.
+
+### Migración desde los Markdown
+
+[scripts/migrar-a-sanity.mjs](scripts/migrar-a-sanity.mjs) pasa `content/` y sus imágenes a Sanity sin tocar los textos. Necesita en `.env.local` un token de [sanity.io/manage](https://www.sanity.io/manage) → **API → Tokens** con permiso Editor: `SANITY_WRITE_TOKEN=…`.
+
+```bash
+npm run migrar:sanity -- --dry    # solo convierte y muestra un resumen
+npm run migrar:sanity             # se niega si Sanity ya tiene páginas
+npm run migrar:sanity -- --force  # sobrescribe, también lo editado en el panel
 ```
-
-## Panel de edición (Pages CMS)
-
-Permite editar el contenido sin tocar código, también a personas sin cuenta de GitHub. La configuración está en `.pages.yml`, en la raíz del repo.
-
-1. Entra en [app.pagescms.org](https://app.pagescms.org) con tu cuenta de GitHub y da acceso a este repo cuando lo pida.
-2. Abre el repo en la rama **`contenido`** (no `main`).
-3. Ve a **Collaborators** para invitar a la persona por email. Recibirá un enlace para entrar; no necesita GitHub.
-
-Los cambios no se publican al guardar: se acumulan en `contenido` y cada noche a las 00:00 (hora de Madrid)
-[.github/workflows/publicar-contenido.yml](.github/workflows/publicar-contenido.yml) los pasa a `main`,
-así Netlify despliega una sola vez con todo junto. Si no hay cambios, no despliega. Para publicar antes:
-GitHub → **Actions → Publicar contenido → Run workflow**.
-
-Si añades campos nuevos a las páginas, actualiza también `.pages.yml`.
 
 ## Despliegue en Netlify (gratis)
 

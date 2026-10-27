@@ -1,13 +1,14 @@
 import { useRef, useState } from 'react'
 import NetlifyForm, { Field } from './NetlifyForm'
+import { toPlainText } from '@portabletext/react'
 import { getPageByPath } from '../../lib/content'
 import styles from './SignupButton.module.css'
 
-// El título y la frase de la ventana son los de la página /suscribete.
-const intro = getPageByPath('/suscribete')
-
 // El campo oculto «curso» conserva desde qué página se envió aunque se cambie el asunto.
 export default function SignupButton({ course, label = 'Quiero apuntarme' }) {
+  // El título y la frase de la ventana son los de la página /suscribete, sin sus títulos.
+  const intro = getPageByPath('/suscribete')
+  const introText = toPlainText(intro?.body?.filter((block) => !block.style?.startsWith('h')) ?? [])
   const dialogRef = useRef(null)
   // Cada apertura monta un formulario nuevo, sin el mensaje del envío anterior.
   const [openings, setOpenings] = useState(0)
@@ -36,7 +37,7 @@ export default function SignupButton({ course, label = 'Quiero apuntarme' }) {
             ×
           </button>
           <h2 id="signup-title" className={styles.title}>{intro?.title}</h2>
-          <p className={styles.intro}>{intro?.body.replace(/^#.*\n+/, '')}</p>
+          <p className={styles.intro}>{introText}</p>
 
           <NetlifyForm key={openings} name="inscripcion" className={styles.form}>
             <input type="hidden" name="curso" value={course} />

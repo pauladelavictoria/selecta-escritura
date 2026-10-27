@@ -54,6 +54,8 @@ content:
       - name: body
         label: Contenido
         type: rich-text
+        options:
+          switcher: false
       - name: signup
         label: Botón «Quiero apuntarme»
         type: boolean
@@ -147,6 +149,8 @@ content:
       - name: body
         label: Biografía
         type: rich-text
+        options:
+          switcher: false
 
   - name: site
     label: Datos de contacto y textos

@@ -1,4 +1,4 @@
-import Markdown from '../ui/Markdown'
+import RichText from '../ui/RichText'
 import styles from './Teacher.module.css'
 
 const initials = (name) =>
@@ -16,7 +16,7 @@ export default function TeacherCard({ teacher }) {
       </div>
       <div>
         <h3 className={styles.name}>{teacher.name}</h3>
-        <Markdown>{teacher.body}</Markdown>
+        <RichText value={teacher.body} />
       </div>
     </article>
   )
