@@ -13,7 +13,7 @@ npm run build    # producción en dist/
 ```
 studio/               # panel de Sanity (https://selecta-escritura.sanity.studio)
   schemaTypes/        # campos de cada tipo de documento
-content/              # contenido en Markdown/YAML de antes de Sanity; solo lo usa scripts/migrar-a-sanity.mjs
+content/              # copia diaria del contenido de Sanity en Markdown/YAML (no editar a mano)
 src/
   layouts/            # plantillas de página (ver abajo)
   components/         # layout/ (cabecera, pie), home/ (portada), page/ (piezas de páginas), ui/
@@ -63,6 +63,16 @@ Permite editar el contenido sin tocar código ni Markdown, con un editor visual.
 - Invitar a alguien: [sanity.io/manage](https://www.sanity.io/manage) → el proyecto → **Members → Invite**, con el rol **Editor**.
 - Desarrollo del panel: `cd studio && npm install && npm run dev` (en http://localhost:3333).
 - Si cambias los campos en `studio/schemaTypes/`, publica el panel con `cd studio && npm run deploy` y ajusta la consulta de `src/lib/content.js`.
+
+### Copia de seguridad
+
+Cada noche, [.github/workflows/copia-contenido.yml](.github/workflows/copia-contenido.yml) ejecuta
+[scripts/copia-desde-sanity.mjs](scripts/copia-desde-sanity.mjs): descarga lo publicado en Sanity y lo escribe en `content/`
+(un Markdown por página y por profesor/a, y YAML para portada, menú y contacto) con las imágenes en `public/uploads/`.
+Si cambia algo, lo guarda en `main` con `[skip netlify]`, así que no gasta despliegues.
+
+Sirve para llevar los textos a otro CMS si Sanity falla, o para volver a subirlos con el script de migración.
+Para hacer la copia a mano: `npm run copia:sanity`, o en GitHub **Actions → Copia del contenido → Run workflow**.
 
 ### Migración desde los Markdown
 

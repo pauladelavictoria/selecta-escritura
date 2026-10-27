@@ -22,11 +22,11 @@ El objetivo es que, durante el curso y desde entonces en adelante, cuentes con u
 
 ## Temario
 
-1.  El narrador y el personaje; sombra, asombro y voces narrativas.
-2.  El deseo; fuerza motriz del relato.
-3.  El espacio; psicología y usos del territorio.
-4.  La estructura; manejo del tiempo narrativo.
-5.  Subtexto; de qué hablo cuando hablo de escribir.
+1. El narrador y el personaje; sombra, asombro y voces narrativas.
+2. El deseo; fuerza motriz del relato.
+3. El espacio; psicología y usos del territorio.
+4. La estructura; manejo del tiempo narrativo.
+5. Subtexto; de qué hablo cuando hablo de escribir.
 
 **Autoras que leeremos:** Anna Starobinets, Amy Hempel, Carmen Martín Gaite, Cristina Sánchez Andrade, Delphine de Vigan, Emmanuel Carrere, Joy Williams, Kathryn Harris, Leila Slimami, Leonard Michaels, Lydia Davis, Lorrie Moore, Ottessa Moshfegh, Raymond Carver, Sara Mesa, Scott Fitgerald.
 

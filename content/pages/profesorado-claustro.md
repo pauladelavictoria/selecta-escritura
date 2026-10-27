@@ -1,7 +1,7 @@
 ---
 title: Claustro
-kicker: Todo nuestro
 layout: team
+kicker: Todo nuestro
 path: /profesorado/claustro
 groups:
   - claustro

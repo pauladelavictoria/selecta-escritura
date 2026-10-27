@@ -22,33 +22,17 @@ Trataremos de interrelacionarlos, comprenderlos y darles sentido a través de nu
 
 ### PARTE 1. EL AMOR
 
-1.  El amor como motor humano. Lo inevitable. La vocación. El impulso
-    amoroso. El recuerdo.
-    a) El amor hacia las personas y el desamor.
-    b) El amor hacia los objetos.
-    c) El amor adolescente o la admiración.
-    d) El amor hacia los animales.
-    e) El amor hacia la literatura.
-    f) El no amor.
+1. El amor como motor humano. Lo inevitable. La vocación. El impulso amoroso. El recuerdo. a) El amor hacia las personas y el desamor. b) El amor hacia los objetos. c) El amor adolescente o la admiración. d) El amor hacia los animales. e) El amor hacia la literatura. f) El no amor.
 
 ### PARTE 2. LA MUERTE
 
-2.  La perturbación de existir con el límite de la muerte. El paso del tiempo. La
-    enfermedad.
-    a) El pensamiento de la muerte hacia uno mismo.
-    b) El pensamiento de la muerte hacia los demás.
-    c) El duelo.
+1. La perturbación de existir con el límite de la muerte. El paso del tiempo. La enfermedad. a) El pensamiento de la muerte hacia uno mismo. b) El pensamiento de la muerte hacia los demás. c) El duelo.
 
 ### PARTE 3. LAS MOSCAS
 
-3.  El malestar de lo cotidiano. Las relaciones familiares y sociales. Las
-    atmósferas.
+1. El malestar de lo cotidiano. Las relaciones familiares y sociales. Las atmósferas.
 
-a) La soledad.
-b) La incomunicación.
-c) La pérdida.
-d) La incoherencia del mundo.
-e) El frío, en general.
+a) La soledad. b) La incomunicación. c) La pérdida. d) La incoherencia del mundo. e) El frío, en general.
 
 ## Almudena Sánchez
 

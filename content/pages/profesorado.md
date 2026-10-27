@@ -1,7 +1,7 @@
 ---
 title: Profesorado
-kicker: Todo nuestro
 layout: team
+kicker: Todo nuestro
 groups:
   - claustro
   - invitadas

@@ -14,7 +14,7 @@ facts:
   - label: Precio
     value: 85 euros/mes. Matrícula 0 euros.
 ---
-# De tu cabeza al papel. Del papel a la pantalla
+## De tu cabeza al papel. Del papel a la pantalla
 
 - Impartido por Pau Martínez (director, realizador y guionista).
 

@@ -1,7 +1,7 @@
 ---
 title: Estrellas invitadas
-kicker: Todas nuestras
 layout: listing
+kicker: Todas nuestras
 summary: Estrellas invitadas a Selecta de Escritura. Programación y talleres Programación y detalles de los talleres impartidos mensualmente
 items:
   - elsa-moreno-vivenciar-el-poema

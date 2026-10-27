@@ -6,6 +6,7 @@ summary: "Taller de Paco Inclán ¿QUÉ CONTAR? ¿CÓMO CONTARLO? Taller de crea
 image: /uploads/2022-09-taller-de-paco-inclan-de-la-idea-al-relato.jpg
 ---
 ## ¿QUÉ CONTAR? ¿CÓMO CONTARLO?
+
 Taller de creatividad literaria: de la idea al relato.
 
 En este taller se propone a los-las participantes un acercamiento a la creatividad literaria a partir de la búsqueda de una voz narrativa personal e intransferible.

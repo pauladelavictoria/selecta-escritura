@@ -1,7 +1,7 @@
 ---
 title: Talleres por videoconferencia
-kicker: Todos nuestros
 layout: listing
+kicker: Todos nuestros
 items:
   - proyecto-con-almudena-sanchez
   - narrativa-i

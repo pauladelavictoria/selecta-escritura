@@ -42,21 +42,21 @@ Bárbara Blasco, Kike Parra y Jero García Tomás.
 
 ## Programa del taller
 
-1.    Ejercicios de desbloqueo.
-2.    Escritura de los sentidos.
-3.    El extrañamiento: una mirada literaria.
-4.    La voz, tu voz.
-5.    Vivir en la piel de los personajes.
-6.    ¿De dónde vienen los temas? A la caza de ideas.
-7.    Probando, probando. Aproximación a algunos géneros.
-8.    El cuento: un poco de estructura.
-9.    No lo digas, cuéntalo.
-10.    Espacio y atmósfera.
-11.    Comienzos y finales.
-12.    Diálogos y escena.
-13.    El humor y lo absurdo.
-14.    Literalidad y literatura.
-15.    Huir de los errores.
+1. Ejercicios de desbloqueo.
+2. Escritura de los sentidos.
+3. El extrañamiento: una mirada literaria.
+4. La voz, tu voz.
+5. Vivir en la piel de los personajes.
+6. ¿De dónde vienen los temas? A la caza de ideas.
+7. Probando, probando. Aproximación a algunos géneros.
+8. El cuento: un poco de estructura.
+9. No lo digas, cuéntalo.
+10. Espacio y atmósfera.
+11. Comienzos y finales.
+12. Diálogos y escena.
+13. El humor y lo absurdo.
+14. Literalidad y literatura.
+15. Huir de los errores.
 
 ## Precio y modalidades de pago
 

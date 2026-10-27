@@ -1,9 +1,9 @@
 ---
 title: Escritura creativa para adolescentes
 layout: page
-signup: true
 summary: "Para jóvenes entre 12 y 16 años. Cuándo: 12 sesiones, de octubre de 2026 a enero de 2027 (3 mensualidades) Horario: lunes 17:30 a 19 h. Precio: 65 euros /mes ¿Te imaginas un espacio de creación en el que tus hijas o hijos compartan sus textos y los gustos lectores y se diviertan? ¿Te imaginas […]"
 image: /uploads/2025-09-ESCRITURA-PARA-ADOLESCENTES.jpg
+signup: true
 ---
 Para jóvenes entre 12 y 16 años.
 

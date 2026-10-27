@@ -49,9 +49,6 @@ Bárbara Blasco, Kike Parra, Javier López Menacho, Jero García Tomás y Albert
 ## Precio y modalidades de pago
 
 - Cuota mensual: 85 euros/mes.
-
 - Matrícula: 0 euros.
-
 - El curso se puede abonar a través de transferencia bancaria y domiciliación (desde cuenta bancaria española) o en efectivo (en la sede de Selecta).
-
 - Los pagos se realizarán entre el 1 y el 8 de cada mes.

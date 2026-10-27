@@ -18,27 +18,27 @@ La producción de literatura LGTBIQ+ ha ido creciendo exponencialmente en los ú
 
 **SÁBADO (3 HORAS)**
 
-1.     Introducción a la literatura del yo: la identidad narrativa.
+1\. Introducción a la literatura del yo: la identidad narrativa.
 
-2.     Los diarios.
+2\. Los diarios.
 
-3.     Las memorias.
+3\. Las memorias.
 
-4.     Elementos de creación narrativa previos (arranque, conflicto, punto de vista, voz y tono).
+4\. Elementos de creación narrativa previos (arranque, conflicto, punto de vista, voz y tono).
 
-5.     En busca de la idea de nuestro relato.
+5\. En busca de la idea de nuestro relato.
 
 **DOMINGO (3 HORAS)**
 
-1.     La autoficción.
+1\. La autoficción.
 
-2.     El género epistolar.
+2\. El género epistolar.
 
-3.     Elementos narrativos de creación (descripciones, diálogos, ritmo, finales).
+3\. Elementos narrativos de creación (descripciones, diálogos, ritmo, finales).
 
-4.     La corrección.
+4\. La corrección.
 
-5.     Lectura de textos.
+5\. Lectura de textos.
 
 ## Carlos Barea
 

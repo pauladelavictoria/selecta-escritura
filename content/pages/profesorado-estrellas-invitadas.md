@@ -1,7 +1,7 @@
 ---
 title: Estrellas invitadas
-kicker: Todas nuestras
 layout: team
+kicker: Todas nuestras
 path: /profesorado/estrellas-invitadas-profesores
 groups:
   - invitadas

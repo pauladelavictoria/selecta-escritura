@@ -36,19 +36,19 @@ Javier López Menacho, Bárbara Blasco y Kike Parra.
 
 ## Programa del taller
 
-1.  El blanco son todos los colores. Superar el bloqueo escritor.
-2.  La mirada construye la historia. El punto de vista.
-3.  Vivir en la piel del otro. Construcción de personajes I.
-4.  Atención: obras. El tema, la trama, estructuras.
-5.  Donde un escritor se la juega. Principios y finales.
-6.  Amarlos, conocerlos, odiarlos, comprenderlos. Construcción de personajes II.
-7.  Inventar la fórmula del tiempo. El tiempo narrativo.
-8.  Desempolvar la caja de herramientas para construir la escena: el espacio narrativo.
-9.  Saber escuchar a nuestros personajes: los diálogos.
-10.  Vivir en el lenguaje. El estilo.
-11.  Un paseo por los distintos géneros.
-12.  El tamaño sí importa. Géneros breves.
-13.  El congelador. La corrección del texto.
+1. El blanco son todos los colores. Superar el bloqueo escritor.
+2. La mirada construye la historia. El punto de vista.
+3. Vivir en la piel del otro. Construcción de personajes I.
+4. Atención: obras. El tema, la trama, estructuras.
+5. Donde un escritor se la juega. Principios y finales.
+6. Amarlos, conocerlos, odiarlos, comprenderlos. Construcción de personajes II.
+7. Inventar la fórmula del tiempo. El tiempo narrativo.
+8. Desempolvar la caja de herramientas para construir la escena: el espacio narrativo.
+9. Saber escuchar a nuestros personajes: los diálogos.
+10. Vivir en el lenguaje. El estilo.
+11. Un paseo por los distintos géneros.
+12. El tamaño sí importa. Géneros breves.
+13. El congelador. La corrección del texto.
 
 ## Precio y modalidades de pago
 

@@ -16,30 +16,18 @@ facts:
 ---
 **Descripción**
 
-Este curso nace de una sospecha: casi todo proyecto literario comienza en el desorden. No en la
-claridad ni en la seguridad de un plan maestro, sino en una mezcla de intuiciones, escenas sueltas, voces
-que se sobreponen y recuerdos que vuelven sin pedir permiso.
-A eso lo llamaremos “caos”, pero no en el sentido de pérdida o de fracaso. Ese “caos” sospechoso, la
-mayoría de las veces, es un territorio fértil que se puede habitar, de forma divertida, de manera
-extravagante e inteligente y del que surgen obras maravillosas.
-Trabajaremos con relatos, novelas, nouvelles, libros híbridos, cuadernos de escritura. etcétera. La
-idea es no pararnos a dilucidar “qué es cada cosa”, al contrario; la idea es “que surja lo que tenga que
-surgir” por naturaleza. A veces, una novela necesitará convertirse en relato, otras, una escena narrativa
-pedirá el ritmo largo de una novela.
-El desparrame será nuestra mesa de trabajo: listas, fragmentos, mapas, citas, tachaduras y
-hallazgos.
-Este taller será eminentemente práctico, pero a modo de teoría, veremos lo siguiente:
+Este curso nace de una sospecha: casi todo proyecto literario comienza en el desorden. No en la claridad ni en la seguridad de un plan maestro, sino en una mezcla de intuiciones, escenas sueltas, voces que se sobreponen y recuerdos que vuelven sin pedir permiso. A eso lo llamaremos “caos”, pero no en el sentido de pérdida o de fracaso. Ese “caos” sospechoso, la mayoría de las veces, es un territorio fértil que se puede habitar, de forma divertida, de manera extravagante e inteligente y del que surgen obras maravillosas. Trabajaremos con relatos, novelas, nouvelles, libros híbridos, cuadernos de escritura. etcétera. La idea es no pararnos a dilucidar “qué es cada cosa”, al contrario; la idea es “que surja lo que tenga que surgir” por naturaleza. A veces, una novela necesitará convertirse en relato, otras, una escena narrativa pedirá el ritmo largo de una novela. El desparrame será nuestra mesa de trabajo: listas, fragmentos, mapas, citas, tachaduras y hallazgos. Este taller será eminentemente práctico, pero a modo de teoría, veremos lo siguiente:
 
-1.  El caos como origen
-2.  Conversar, relacionarse con las ideas, sostener la curiosidad
-3.  La materia prima: memoria, imaginación y experiencia
-4.  La chispa breve
-5.  Amistades caóticas
-6.  Libros híbridos y cuadernos de escritura
-7.  Del borrador al proyecto
-8.  La voz propia en el caos de voces
-9.  Se puede hacer lo que queramos hacer
-10.  Cierre: publicar, compartir, circular
+1. El caos como origen
+2. Conversar, relacionarse con las ideas, sostener la curiosidad
+3. La materia prima: memoria, imaginación y experiencia
+4. La chispa breve
+5. Amistades caóticas
+6. Libros híbridos y cuadernos de escritura
+7. Del borrador al proyecto
+8. La voz propia en el caos de voces
+9. Se puede hacer lo que queramos hacer
+10. Cierre: publicar, compartir, circular
 
 **Almudena Sánchez**
 

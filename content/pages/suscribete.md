@@ -3,6 +3,6 @@ title: Suscríbete
 layout: page
 summary: Suscribirse Dínos en que curso o taller estás interesado
 ---
-# Suscribirse
+## Suscribirse
 
 Dínos en que curso o taller estás interesado

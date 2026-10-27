@@ -18,8 +18,7 @@ La duquesa de Osuna diseñó un jardín triangular lleno de detalles delirantes
 
 La duquesa hizo construir esta zona de recreo para su propio disfrute y el de los amigos que se acercaban por allí a visitarla.
 
-Qué hortera suena eso de ‘escribir para una misma’. Pero, ante la creciente autodemanda de escribir para los otros, de contarse y mostrarse al exterior, de satisfacer la necesidad de gustar, del miedo al juicio lector y la opinión ajena, llega Parque del Capricho, un taller en el que se intentará trabajar la escritura
-desde el disfrute propio y la patada a los límites externos.
+Qué hortera suena eso de ‘escribir para una misma’. Pero, ante la creciente autodemanda de escribir para los otros, de contarse y mostrarse al exterior, de satisfacer la necesidad de gustar, del miedo al juicio lector y la opinión ajena, llega Parque del Capricho, un taller en el que se intentará trabajar la escritura desde el disfrute propio y la patada a los límites externos.
 
 En este taller leeremos fragmentos de obras de autores que escriben o escribieron para sí mismos, sin miedo a lo extraño y desconcertante, a lo íntimo, a lo absurdo, a lo incorrecto, sin plegarse a formatos preestablecidos, e intentaremos construir nuestra voz ajena al otro, buscando descubrir cuál es nuestro capricho escritor y cediendo a él.
 

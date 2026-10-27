@@ -1,15 +1,19 @@
-title: Selecta Escritura
+address: Calle Denia, 45. Ruzafa, Valencia
 description: Escuela de escritura en Ruzafa (Valencia) y online.
 email: info@selectaescritura.com
-phone: "606325772"
-phoneDisplay: "+34 606 32 57 72"
-address: Calle Denia, 45. Ruzafa, Valencia
-mapsUrl: https://goo.gl/maps/4tQrLForPRcrRthg9
-instagram: https://www.instagram.com/selectadeescritura/
-tagline: En Selecta creemos en el poder de la palabra para ordenar la mente, para expandir la imaginación, para construir la realidad, para provocar revoluciones, para crear belleza.
 footerTagline: En Selecta creemos en el poder de la palabra para ordenar la mente.
+instagram: https://www.instagram.com/selectadeescritura/
 legalLinks:
-  - { label: Mapa del sitio, href: /mapa-sitio }
-  - { label: Política de cookies, href: /politica-cookies }
-  - { label: Política de privacidad, href: /politica-de-privacidad }
-  - { label: Términos y condiciones, href: /terminos-condiciones }
+  - href: /mapa-sitio
+    label: Mapa del sitio
+  - href: /politica-cookies
+    label: Política de cookies
+  - href: /politica-de-privacidad
+    label: Política de privacidad
+  - href: /terminos-condiciones
+    label: Términos y condiciones
+mapsUrl: https://goo.gl/maps/4tQrLForPRcrRthg9
+phone: "606325772"
+phoneDisplay: +34 606 32 57 72
+tagline: En Selecta creemos en el poder de la palabra para ordenar la mente, para expandir la imaginación, para construir la realidad, para provocar revoluciones, para crear belleza.
+title: Selecta Escritura

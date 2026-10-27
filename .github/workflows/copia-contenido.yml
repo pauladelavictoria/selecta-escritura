@@ -1,0 +1,43 @@
+# Copia de seguridad diaria del contenido de Sanity en /content y public/uploads (ver scripts/copia-desde-sanity.mjs).
+# Solo hace commit si algo ha cambiado, y con [skip netlify] para no gastar un despliegue: la web ya lee de Sanity.
+# También se puede lanzar a mano desde GitHub: Actions → Copia del contenido → Run workflow.
+name: Copia del contenido
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # 03:00 UTC, de madrugada en Madrid
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: copia-contenido
+
+jobs:
+  copia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run copia:sanity
+
+      - name: Guardar la copia en main
+        run: |
+          git add content public/uploads
+          if git diff --cached --quiet; then
+            echo "Sin cambios en el contenido."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Copia de seguridad del contenido de Sanity [skip netlify]"
+          git push origin main

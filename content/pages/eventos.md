@@ -1,7 +1,7 @@
 ---
 title: Eventos
-kicker: Todos nuestros
 layout: listing
+kicker: Todos nuestros
 summary: Eventos, cineforún, exposiciones, club de lectura, micro abierto, nuestro festival literario y más eventos todos los meses en Selecta de Escritura en Ruzafa
 items:
   - carinar-festival-literario

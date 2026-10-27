@@ -1,7 +1,7 @@
 ---
 title: Servicios
-kicker: Todos nuestros
 layout: listing
+kicker: Todos nuestros
 items:
   - edicion-y-maquetacion
   - tutorias

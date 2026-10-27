@@ -2,12 +2,29 @@ intro:
   lead: Si deseas profesionalizarte en la escritura o simplemente mantener tu mente en forma y jugar con tu imaginación, hay un taller que se adapta a ti. Con profesores de primer nivel y gran calidad humana.
   title: Entra y descúbrelos
 discover:
-  - { label: Nuestros talleres, href: /talleres, image: /images/01nuestros-talleres.webp }
-  - { label: Taller de experiencias, href: /taller-de-experiencias, image: /uploads/2025-09-Escribir-a-ras-de-la-albufera_cartel.jpg }
-  - { label: Profesorado, href: /profesorado, image: /images/05profesorado.webp }
-  - { label: Estrellas invitadas, href: /estrellas-invitadas, image: /images/02estrellas-invitadas.webp }
-  - { label: Servicios literarios, href: /servicios, image: /images/03servicios-literarios.webp }
-  - { label: Club de lectura, href: /club-de-lectura, image: /uploads/2022-08-club-de-lectura-1.jpg }
-  - { label: Eventos, href: /eventos, image: /images/06eventos.webp }
+  - href: /talleres
+    label: Nuestros talleres
+    image: /uploads/01nuestros-talleres.webp
+  - href: /taller-de-experiencias
+    label: Taller de experiencias
+    image: /uploads/2025-09-Escribir-a-ras-de-la-albufera_cartel.jpg
+  - href: /profesorado
+    label: Profesorado
+    image: /uploads/05profesorado.webp
+  - href: /estrellas-invitadas
+    label: Estrellas invitadas
+    image: /uploads/02estrellas-invitadas.webp
+  - href: /servicios
+    label: Servicios literarios
+    image: /uploads/03servicios-literarios.webp
+  - href: /club-de-lectura
+    label: Club de lectura
+    image: /uploads/2022-08-club-de-lectura-1.jpg
+  - href: /eventos
+    label: Eventos
+    image: /uploads/06eventos.webp
 callouts:
-  - { title: Regala un taller, text: Regala el curso que quieras., href: /regala-un-taller, icon: gift }
+  - href: /regala-un-taller
+    icon: gift
+    text: Regala el curso que quieras.
+    title: Regala un taller

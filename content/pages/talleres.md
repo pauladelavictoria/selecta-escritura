@@ -1,7 +1,7 @@
 ---
 title: Talleres
-kicker: Todos nuestros
 layout: listing
+kicker: Todos nuestros
 summary: Talleres, programación de nuestros talleres por mes
 items:
   - narrativa-i
