@@ -4,25 +4,25 @@ intro:
 discover:
   - href: /talleres
     label: Nuestros talleres
-    image: /uploads/01nuestros-talleres.webp
+    image: /uploads/01nuestros-talleres-74d4cab6.webp
   - href: /taller-de-experiencias
     label: Taller de experiencias
     image: /uploads/2025-09-Escribir-a-ras-de-la-albufera_cartel.jpg
   - href: /profesorado
     label: Profesorado
-    image: /uploads/05profesorado.webp
+    image: /uploads/05profesorado-84320781.webp
   - href: /estrellas-invitadas
     label: Estrellas invitadas
-    image: /uploads/02estrellas-invitadas.webp
+    image: /uploads/02estrellas-invitadas-20dd414f.webp
   - href: /servicios
     label: Servicios literarios
-    image: /uploads/03servicios-literarios.webp
+    image: /uploads/03servicios-literarios-309e85e7.webp
   - href: /club-de-lectura
     label: Club de lectura
     image: /uploads/2022-08-club-de-lectura-1.jpg
   - href: /eventos
     label: Eventos
-    image: /uploads/06eventos.webp
+    image: /uploads/06eventos-27ad3311.webp
 callouts:
   - href: /regala-un-taller
     icon: gift
