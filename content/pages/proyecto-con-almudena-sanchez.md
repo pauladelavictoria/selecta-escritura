@@ -3,7 +3,7 @@ title: Proyecto con Almudena Sánchez
 layout: course
 kicker: Taller
 summary: "Cuándo: de diciembre 2026 a mayo de 2027. Horario: martes, de 18:30 a 20:30h. Modalidad: por zoom. Precio: 120 euros. No hay que pagar matrícula. "
-image: /uploads/TEORÍA DEL MÁS ALLÁ (una teoría del caos, el deseo y la escritura).jpg
+image: /uploads/TEORÍA DEL MÁS ALLÁ (una teoría del caos, el deseo y la escritura)-64e63aaf.jpg
 facts:
   - label: Cuándo
     value: de diciembre 2026 a mayo de 2027.
