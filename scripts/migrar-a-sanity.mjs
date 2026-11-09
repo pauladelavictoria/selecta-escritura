@@ -181,6 +181,10 @@ async function buildDocuments() {
 
   docs.push({ _id: 'menu', _type: 'menu', items: menuItems(readYaml('content/settings/menu.yml').items) })
 
+  if (existsSync(join(ROOT, 'content/settings/pixels.yml'))) {
+    docs.push({ _id: 'pixels', _type: 'pixels', items: withKeys(readYaml('content/settings/pixels.yml').items, 'pixel') })
+  }
+
   // Sanity no guarda campos vacíos: se quitan para no dejar `null` en los documentos.
   return JSON.parse(JSON.stringify(docs, (_, value) => (value === null ? undefined : value)))
 }

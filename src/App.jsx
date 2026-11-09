@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import ScrollToTop from './components/layout/ScrollToTop'
+import CookieBanner from './components/layout/CookieBanner'
 import Home from './pages/Home'
 import ContentPage from './pages/ContentPage'
 
@@ -17,6 +18,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <CookieBanner />
     </BrowserRouter>
   )
 }

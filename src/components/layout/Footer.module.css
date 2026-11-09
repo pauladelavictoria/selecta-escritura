@@ -9,14 +9,15 @@
 .brand img { width: 160px; height: auto; }
 
 .links, .contact { display: grid; gap: 12px; align-content: start; font-size: 15px; }
-.links a, .contact a {
+.links a, .contact a, .linkButton {
   display: inline-flex;
   align-items: flex-start;
   gap: 10px;
   color: var(--ink);
   transition: color var(--fast) var(--ease);
 }
-.links a:hover, .contact a:hover { color: var(--paper); text-decoration: underline; text-underline-offset: 4px; }
+.linkButton { padding: 0; border: 0; background: none; font-size: inherit; text-align: left; cursor: pointer; }
+.links a:hover, .contact a:hover, .linkButton:hover { color: var(--paper); text-decoration: underline; text-underline-offset: 4px; }
 .contact svg { flex-shrink: 0; margin-top: 3px; }
 
 .copy {

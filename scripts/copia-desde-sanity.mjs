@@ -29,6 +29,7 @@ const data = await client.fetch(`{
   "site": *[_id == "siteSettings"][0],
   "home": *[_id == "home"][0]{ intro, callouts, discover[]{ label, href, image{ "asset": asset->${ASSET} } } },
   "menu": *[_id == "menu"][0].items,
+  "pixels": *[_id == "pixels"][0].items[]{ name, code, active },
   "pages": *[_type == "page"] | order(slug.current){
     ...,
     "slug": slug.current,
@@ -184,6 +185,8 @@ for (const { image, ...book } of data.home?.discover ?? []) discover.push({ ...b
 writeYaml('content/settings/home.yml', { intro: data.home?.intro, discover, callouts: data.home?.callouts })
 
 writeYaml('content/settings/menu.yml', { items: data.menu })
+
+writeYaml('content/settings/pixels.yml', { items: data.pixels ?? [] })
 
 // Las carpetas se rehacen enteras para que desaparezcan las páginas borradas en Sanity.
 for (const dir of ['content/pages', 'content/teachers']) {

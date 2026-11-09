@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import Icon from '../ui/Icon'
 import SmartLink from '../ui/SmartLink'
-import { contactLinks, site } from '../../lib/content'
+import { resetConsent } from '../../lib/consent'
+import { contactLinks, pixels, site } from '../../lib/content'
 import styles from './Footer.module.css'
 
 const YEAR = new Date().getFullYear()
@@ -27,6 +28,13 @@ export default function Footer() {
               <SmartLink href={link.href}>{link.label}</SmartLink>
             </li>
           ))}
+          {pixels.length > 0 && (
+            <li>
+              <button type="button" className={styles.linkButton} onClick={resetConsent}>
+                Configurar cookies
+              </button>
+            </li>
+          )}
         </ul>
 
         <ul className={styles.contact}>

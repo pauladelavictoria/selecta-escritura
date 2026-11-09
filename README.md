@@ -64,6 +64,12 @@ Permite editar el contenido sin tocar código ni Markdown, con un editor visual.
 - Desarrollo del panel: `cd studio && npm install && npm run dev` (en http://localhost:3333).
 - Si cambias los campos en `studio/schemaTypes/`, publica el panel con `cd studio && npm run deploy` y ajusta la consulta de `src/lib/content.js`.
 
+### Píxeles de publicidad
+
+En **Píxeles de publicidad** se pega el código que da cada plataforma (Meta, Google Ads, TikTok…) y se marca como activo.
+Si hay alguno activo, la web muestra un aviso de cookies y solo carga los píxeles cuando el visitante pulsa **Aceptar**;
+el enlace **Configurar cookies** del pie vuelve a preguntar. Al activar uno hay que actualizar la Política de cookies.
+
 ### Copia de seguridad
 
 Cada noche, [.github/workflows/copia-contenido.yml](.github/workflows/copia-contenido.yml) ejecuta

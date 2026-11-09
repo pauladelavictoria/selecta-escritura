@@ -18,6 +18,7 @@ const QUERY = `{
     "discover": discover[]{ label, href, "image": image.asset->url + "?w=800&auto=format" }
   },
   "menu": *[_id == "menu"][0].items,
+  "pixels": *[_id == "pixels"][0].items[active && defined(code)].code,
   "pages": *[_type == "page"]{
     ...,
     "slug": slug.current,
@@ -44,6 +45,7 @@ export let site
 export let home
 export let menu
 export let contactLinks
+export let pixels
 
 let teachers = []
 let pagesByPath = new Map()
@@ -56,6 +58,7 @@ export async function loadContent() {
   site = data.site ?? {}
   home = data.home ?? {}
   menu = data.menu ?? []
+  pixels = data.pixels ?? []
   contactLinks = {
     phone: `tel:+34${site.phone}`,
     email: `mailto:${site.email}`,

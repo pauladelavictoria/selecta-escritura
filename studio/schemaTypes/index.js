@@ -4,12 +4,14 @@ import teacher from './teacher.js'
 import siteSettings from './siteSettings.js'
 import home from './home.js'
 import menu from './menu.js'
+import pixels from './pixels.js'
 
-export const schemaTypes = [blockContent, page, teacher, siteSettings, home, menu]
+export const schemaTypes = [blockContent, page, teacher, siteSettings, home, menu, pixels]
 
 // Documentos únicos: se editan, no se crean ni se borran.
 export const singletons = [
   { id: 'siteSettings', type: 'siteSettings', title: 'Datos de contacto y textos' },
   { id: 'home', type: 'home', title: 'Portada' },
   { id: 'menu', type: 'menu', title: 'Menú principal' },
+  { id: 'pixels', type: 'pixels', title: 'Píxeles de publicidad' },
 ]
