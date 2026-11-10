@@ -4,6 +4,7 @@ export default {
   name: 'pixels',
   title: 'Píxeles de publicidad',
   type: 'document',
+  preview: { prepare: () => ({ title: 'Píxeles de publicidad' }) },
   fields: [
     {
       name: 'items',

@@ -2,6 +2,7 @@ export default {
   name: 'home',
   title: 'Portada',
   type: 'document',
+  preview: { prepare: () => ({ title: 'Portada' }) },
   fields: [
     {
       name: 'intro',

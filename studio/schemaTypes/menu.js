@@ -15,5 +15,6 @@ export default {
   name: 'menu',
   title: 'Menú principal',
   type: 'document',
+  preview: { prepare: () => ({ title: 'Menú principal' }) },
   fields: [{ name: 'items', title: 'Entradas', type: 'array', of: [entry(1)] }],
 }
