@@ -4,6 +4,7 @@ layout: course
 kicker: Taller
 summary: "Cuándo: de diciembre 2026 a mayo de 2027. Horario: martes, de 18:30 a 20:30h. Modalidad: por zoom. Precio: 120 euros. No hay que pagar matrícula. "
 image: /uploads/TEORÍA DEL MÁS ALLÁ (una teoría del caos, el deseo y la escritura)-64e63aaf.jpg
+signup: true
 facts:
   - label: Cuándo
     value: de diciembre 2026 a mayo de 2027.
@@ -12,16 +13,16 @@ facts:
   - label: Modalidad
     value: por zoom.
   - label: Precio
-    value: 120 euros.    20 sesiones(equivalente a 5 mensualidades). No hay que pagar matrícula.
+    value: 120 euros.    20 sesiones (equivalente a 5 mensualidades). No hay que pagar matrícula.
 ---
 **Descripción**
 
-Teoría del más allá:
+**Teoría del más allá:**
 
 (Una teoría del caos, el deseo y la escritura).
 
 
-Este no es un curso sobre cómo escribir bien.Es un curso sobre por qué seguimos escribiendo aunque, a veces, juraríamos no volver a hacerlo.
+Este no es un curso sobre cómo escribir bien. Es un curso sobre por qué seguimos escribiendo aunque, a veces, juraríamos no volver a hacerlo.
 
 Porque el deseo literario también es escribir.
 
@@ -47,15 +48,11 @@ Es un comienzo.
 Porque toda historia verdaderamente viva acaba atravesando un lugar no reconocible. Un desvío. Un extravío. El instante en que dejamos de escribir lo que creíamos que íbamos a escribir y empezamos a perseguir algo que todavía no tiene nombre.
 
 
-A ese lugar lo llamo 'el más allá'.
-
-
+**A ese lugar lo llamo 'el más allá'.**
 No hace falta saber qué historia queremos contar para que el deseo empiece a escribir antes que nosotros.Creo que el deseo escribe antes que nosotros. Nosotros solo aprendemos, poco a poco, a reconocer sus desvíos.Y quizá escribir consista precisamente en eso: en aceptar la invitación a ir más allá de lo previsto, del argumento, del plan y, a veces, incluso de una misma.
 
 
 Temario del curso:
-
-
 Este curso no propone un método para escribir.
 
 Propone aprender a perderse.
@@ -69,6 +66,8 @@ Hablaremos del caos como forma de conocimiento, del desvío como método creativ
 
 
 *Cualquier texto, poético, ensayístico, híbrido, novela río o cuento largo, será bienvenido. Poemarios también. Cosas extrañas y cuadernos de notas.
+
+
 
 
 
