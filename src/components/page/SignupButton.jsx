@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
-import NetlifyForm, { Field } from './NetlifyForm'
+import NetlifyForm, { Field, Select } from './NetlifyForm'
 import { toPlainText } from '@portabletext/react'
+import { useLocation } from 'react-router-dom'
+import { trackLead } from '../../lib/lead'
 import { getPageByPath } from '../../lib/content'
 import styles from './SignupButton.module.css'
 
@@ -10,6 +12,7 @@ export default function SignupButton({ course, label = 'Quiero apuntarme' }) {
   const intro = getPageByPath('/suscribete')
   const introText = toPlainText(intro?.body?.filter((block) => !block.style?.startsWith('h')) ?? [])
   const dialogRef = useRef(null)
+  const { pathname } = useLocation()
   // Cada apertura monta un formulario nuevo, sin el mensaje del envío anterior.
   const [openings, setOpenings] = useState(0)
 
@@ -19,6 +22,12 @@ export default function SignupButton({ course, label = 'Quiero apuntarme' }) {
   }
 
   const close = () => dialogRef.current.close()
+  // Tras enviar, deja leer el mensaje de gracias un momento y cierra la ventana.
+  const closeSoon = () => setTimeout(close, 2000)
+  const handleSent = () => {
+    trackLead(pathname)
+    closeSoon()
+  }
 
   return (
     <>
@@ -39,7 +48,7 @@ export default function SignupButton({ course, label = 'Quiero apuntarme' }) {
           <h2 id="signup-title" className={styles.title}>{intro?.title}</h2>
           <p className={styles.intro}>{introText}</p>
 
-          <NetlifyForm key={openings} name="inscripcion" className={styles.form}>
+          <NetlifyForm key={openings} name="inscripcion" className={styles.form} onSent={handleSent} newsletter={false}>
             <input type="hidden" name="curso" value={course} />
             <Field label="Nombre completo">
               <input name="nombre" autoComplete="name" />
@@ -53,6 +62,12 @@ export default function SignupButton({ course, label = 'Quiero apuntarme' }) {
             <Field label="Asunto">
               <input name="asunto" defaultValue={course} />
             </Field>
+            <Select
+              label="¿Qué necesitas?"
+              name="peticion"
+              options={['Quiero más información', 'Quiero reservar la plaza']}
+              full
+            />
             <Field label="Mensaje" full>
               <textarea name="mensaje" rows="4" />
             </Field>
